@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="photo/favicon.ico" type="images/favicon.ico" sizes="16x16">
+  <title>Michael Bartek</title>
+  <link rel="stylesheet" href="analog_styles.css">
+  <meta name="description" content="Grafické štúdio, ktoré vám prináša širokú ponuku a náhľad do sveta grafiky. Neváhajte nás kontaktovať a my pre vás budeme tvoriť!">
+<meta name="keywords" content="ThrowBack, Throwback, TBG, Throwback Graphics, Michael Bartek, trowback graphic, Grafika, Gaficky dizajn, fotografia, atelier, video, kinematografia, animacia, nádych kreativity, tvorba, Umenie, Art, photography, Žilina, Rajecká Lesná, filmova tvorba, reklama, reklamna agentura, dizajn, design, štúdio">
+<meta name="author" content="Michael Bartek,">
+
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-216463283-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-216463283-1');
+</script>
+<style> 
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .gallery-item {
+        margin: 10px;
+      }
+      .gallery-item img {
+        width: 250px;
+        height: 150px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+        .category-container {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 2%;
+        font-size: 13pt;
+      }
+       .category-container button {
+        margin: 2%;
+        font-size: 20pt;
+        color: #fff;
+        background-color: #222;
+        font-family: monospace;
+        border: none;
+      }
+      .category-container button:hover {
+        margin: 2%;
+        font-size: 20pt;
+        color: #BE3455;
+        border: none;
+      }
+      body {
+        background-color: #222;
+      }
+    </style>   
+
+
+</head>
+<body>
+  <p style="color: #BE3455; padding:  1%; background-color: #333; margin-bottom: 0%; font-size: 30pt;">[ Keď film čas zastavil! ]</p>
+  <!-- Navbar -->
+<nav>
+  
+  <div class="navbar" id="top">
+      <a href="analog.html">DOMOV</a>
+    </div>
+  </div>
+
+<div class="category-container">
+    <button style="font-size: 14pt" onclick="filterCategory('all')">VŠETKY</button>
+    <button style="font-size: 14pt" onclick="filterCategory('portret')">Portrét</button>
+    <button style="font-size: 14pt" onclick="filterCategory('ulica')">Ulica</button>
+    <button style="font-size: 14pt" onclick="filterCategory('event')">Event</button>
+    <button style="font-size: 14pt" onclick="filterCategory('priroda')">Príroda</button>
+    
+    <div style="padding: 1%; width: 70%; display: block; margin-left: auto; margin-right: auto;"><p style="font-family: monospace; font-size: 18pt; color:#fff; ">Použité filmy : Ilford HP5+ 400ISO / Fujifilm Superia 200ISO / Fomapan 200ISO / Fujifilm 200ISO</p></div>
+  
+  <div class="gallery">
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/fuji-8.png" onclick="openPhoto('aimages/fuji-8.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="priroda">
+      <img src="aimages/fuji-1.png" onclick="openPhoto('aimages/fuji-1.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/fuji-3.png" onclick="openPhoto('aimages/fuji-3.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/fuji-5.png" onclick="openPhoto('aimages/fuji-5.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/fuji-7.png" onclick="openPhoto('aimages/fuji-7.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="priroda">
+      <img src="aimages/fuji-12.png" onclick="openPhoto('aimages/fuji-12.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/fuji-15.png" onclick="openPhoto('aimages/fuji-15.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/fuji-18.png" onclick="openPhoto('aimages/fuji-18.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="priroda">
+      <img src="aimages/fuji-19.png" onclick="openPhoto('aimages/fuji-19.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/fuji-21.png" onclick="openPhoto('aimages/fuji-21.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="priroda">
+      <img src="aimages/fuji-26.png" onclick="openPhoto('aimages/fuji-26.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+     <div class="gallery-item" data-category="priroda">
+      <img src="aimages/fuji-27.png" onclick="openPhoto('aimages/fuji-27.png')">
+      <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_01.jpg" onclick="openPhoto('aimages/bartek_01.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">31.1.'24 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_02.jpg" onclick="openPhoto('aimages/bartek_02.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">31.1.'24 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_03.jpg" onclick="openPhoto('aimages/bartek_03.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">31.1.'24 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_04.jpg" onclick="openPhoto('aimages/bartek_04.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">31.1.'24 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_05.jpg" onclick="openPhoto('aimages/bartek_05.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">31.1.'24 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_06.jpg" onclick="openPhoto('aimages/bartek_06.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">31.1.'24 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_07.jpg" onclick="openPhoto('aimages/bartek_07.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">31.1.'24 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_08.jpg" onclick="openPhoto('aimages/bartek_08.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_09.jpg" onclick="openPhoto('aimages/bartek_09.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_10.jpg" onclick="openPhoto('aimages/bartek_10.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_11.jpg" onclick="openPhoto('aimages/bartek_11.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_12.jpg" onclick="openPhoto('aimages/bartek_12.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_13.jpg" onclick="openPhoto('aimages/bartek_13.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_14.jpg" onclick="openPhoto('aimages/bartek_14.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_15.jpg" onclick="openPhoto('aimages/bartek_15.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">33.11.'23 / Ilford HP5+ 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="event">
+      <img src="aimages/bartek_16.jpg" onclick="openPhoto('aimages/bartek_16.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">5.8.'23 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="event">
+      <img src="aimages/bartek_16.jpg" onclick="openPhoto('aimages/bartek_16.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">5.8.'23 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_17.jpg" onclick="openPhoto('aimages/bartek_17.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">5.8.'23 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="portret">
+      <img src="aimages/bartek_18.jpg" onclick="openPhoto('aimages/bartek_18.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">5.7.'23 / Fomapan 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="event">
+      <img src="aimages/bartek_19.jpg" onclick="openPhoto('aimages/bartek_19.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">30.4.'23 / Fomapan 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="event">
+      <img src="aimages/bartek_20.jpg" onclick="openPhoto('aimages/bartek_20.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">30.4.'23 / Fomapan 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="priroda">
+      <img src="aimages/bartek_21.jpg" onclick="openPhoto('aimages/bartek_21.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">30.4.'23 / Fomapan 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="priroda">
+      <img src="aimages/bartek_22.jpg" onclick="openPhoto('aimages/bartek_22.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">30.4.'23 / Fomapan 400ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_23.jpg" onclick="openPhoto('aimages/bartek_23.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">13.3.'23 / Fujifilm Superia 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_24.jpg" onclick="openPhoto('aimages/bartek_24.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">13.3.'23 / Fujifilm Superia 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_25.jpg" onclick="openPhoto('aimages/bartek_25.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">13.3.'23 / Fujifilm Superia 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_26.jpg" onclick="openPhoto('aimages/bartek_26.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">13.3.'23 / Fujifilm Superia 200ISO / Kiev 4A</p>
+    </div>
+    <div class="gallery-item" data-category="ulica">
+      <img src="aimages/bartek_27.jpg" onclick="openPhoto('aimages/bartek_27.jpg')">
+      <p style= "color: #fff; font-size: 11pt;">13.3.'23 / Fujifilm Superia 200ISO / Kiev 4A</p>
+    </div>
+    
+  </div>
+  
+  <script>
+    function openPhoto(photoUrl) {
+      window.open(photoUrl, '_self');
+    }
+  
+    function filterCategory(category) {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      galleryItems.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  </body>
+  </html>
+  
