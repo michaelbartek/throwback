@@ -16,10 +16,10 @@
   <title>Michael Bartek</title>
   <link rel="stylesheet" href="analog_styles.css">
   <meta name="description" content="Grafické štúdio, ktoré vám prináša širokú ponuku a náhľad do sveta grafiky. Neváhajte nás kontaktovať a my pre vás budeme tvoriť!">
-<meta name="keywords" content="ThrowBack, Throwback, TBG, Throwback Graphics, Michael Bartek, trowback graphic, Grafika, Gaficky dizajn, fotografia, atelier, video, kinematografia, animacia, nádych kreativity, tvorba, Umenie, Art, photography, Žilina, Rajecká Lesná, filmova tvorba, reklama, reklamna agentura, dizajn, design, štúdio">
-<meta name="author" content="Michael Bartek,">
+  <meta name="keywords" content="ThrowBack, Throwback, TBG, Throwback Graphics, Michael Bartek, trowback graphic, Grafika, Gaficky dizajn, fotografia, atelier, video, kinematografia, animacia, nádych kreativity, tvorba, Umenie, Art, photography, Žilina, Rajecká Lesná, filmova tvorba, reklama, reklamna agentura, dizajn, design, štúdio">
+  <meta name="author" content="Michael Bartek,">
 
-<style> 
+  <style> 
     .gallery {
         display: flex;
         flex-wrap: wrap;
@@ -34,14 +34,14 @@
         object-fit: cover;
         cursor: pointer;
       }
-        .category-container {
+      .category-container {
         justify-content: center;
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 2%;
         font-size: 13pt;
       }
-       .category-container button {
+      .category-container button {
         margin: 2%;
         font-size: 20pt;
         color: #fff;
@@ -58,29 +58,74 @@
       body {
         background-color: #222;
       }
+      /* Pridanie z-index pre navbar aby neprekrýval modálne okno */
+      .navbar {
+        position: relative;
+        z-index: 1;
+      }
+      /* Štýl pre modálnu fotku a šípky */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 999; /* Modálne okno má vyšší z-index ako navbar */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+      .modal-content {
+        display: block;
+        margin: auto;
+        max-width: 80%;
+        max-height: 80%;
+      }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .prev, .next {
+        position: absolute;
+        top: 50%;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        padding: 16px;
+        margin-top: -22px;
+        user-select: none;
+      }
+      .prev {
+        left: 0;
+      }
+      .next {
+        right: 0;
+      }
     </style>   
-
-
 </head>
 <body>
   <p style="color: #BE3455; padding:  1%; background-color: #333; margin-bottom: 0%; font-size: 30pt;">[ Keď film čas zastavil! ]</p>
   <!-- Navbar -->
-<nav>
-  
-  <div class="navbar" id="top">
+  <nav>
+    <div class="navbar" id="top">
       <a href="analog.html">DOMOV</a>
     </div>
-  </div>
+  </nav>
 
 <div class="category-container">
-    <button style="font-size: 14pt" onclick="filterCategory('all')">VŠETKY</button>
-    <button style="font-size: 14pt" onclick="filterCategory('portret')">Portrét</button>
-    <button style="font-size: 14pt" onclick="filterCategory('ulica')">Ulica</button>
-    <button style="font-size: 14pt" onclick="filterCategory('event')">Event</button>
-    <button style="font-size: 14pt" onclick="filterCategory('priroda')">Príroda</button>
-    
-    <div style="padding: 1%; width: 70%; display: block; margin-left: auto; margin-right: auto;"><p style="font-family: monospace; font-size: 18pt; color:#fff; ">Použité filmy : Ilford HP5+ 400ISO / Fujifilm Superia 200ISO / Fomapan 200ISO / Fujifilm 200ISO</p></div>
+  <button style="font-size: 14pt" onclick="filterCategory('all')">VŠETKY</button>
+  <button style="font-size: 14pt" onclick="filterCategory('portret')">Portrét</button>
+  <button style="font-size: 14pt" onclick="filterCategory('ulica')">Ulica</button>
+  <button style="font-size: 14pt" onclick="filterCategory('event')">Event</button>
+  <button style="font-size: 14pt" onclick="filterCategory('priroda')">Príroda</button>
   
+  <div style="padding: 1%; width: 70%; display: block; margin-left: auto; margin-right: auto;">
+    <p style="font-family: monospace; font-size: 18pt; color:#fff; ">Použité filmy : Ilford HP5+ 400ISO / Fujifilm Superia 200ISO / Fomapan 200ISO / Fujifilm 200ISO</p>
+  </div>
+
   <div class="gallery">
     <div class="gallery-item" data-category="portret">
       <img src="aimages/fuji-8.png" onclick="openPhoto('aimages/fuji-8.png')">
@@ -94,6 +139,7 @@
       <img src="aimages/fuji-3.png" onclick="openPhoto('aimages/fuji-3.png')">
       <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
     </div>
+    
     <div class="gallery-item" data-category="ulica">
       <img src="aimages/fuji-5.png" onclick="openPhoto('aimages/fuji-5.png')">
       <p style= "color: #fff; font-size: 11pt;">23.4.'24 / Fujifilm 200ISO / Praktica FX2</p>
@@ -243,14 +289,43 @@
       <img src="aimages/bartek_27.jpg" onclick="openPhoto('aimages/bartek_27.jpg')">
       <p style= "color: #fff; font-size: 11pt;">13.3.'23 / Fujifilm Superia 200ISO / Kiev 4A</p>
     </div>
-    
   </div>
-  
+
+  <!-- Modálne zobrazenie obrázka s navigáciou -->
+  <div id="photoModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <a class="prev" onclick="changePhoto(-1)">&#10094;</a>
+    <a class="next" onclick="changePhoto(1)">&#10095;</a>
+  </div>
+
   <script>
+    let currentPhotoIndex = 0;
+    let filteredImages = [];
+
     function openPhoto(photoUrl) {
-      window.open(photoUrl, '_self');
+      const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+      filteredImages = galleryItems.filter(item => item.style.display !== 'none').map(item => item.querySelector('img').src);
+      currentPhotoIndex = filteredImages.indexOf(photoUrl);
+
+      document.getElementById('modalImage').src = photoUrl;
+      document.getElementById('photoModal').style.display = "block";
     }
-  
+
+    function closeModal() {
+      document.getElementById('photoModal').style.display = "none";
+    }
+
+    function changePhoto(direction) {
+      currentPhotoIndex += direction;
+      if (currentPhotoIndex < 0) {
+        currentPhotoIndex = filteredImages.length - 1;
+      } else if (currentPhotoIndex >= filteredImages.length) {
+        currentPhotoIndex = 0;
+      }
+      document.getElementById('modalImage').src = filteredImages[currentPhotoIndex];
+    }
+
     function filterCategory(category) {
       const galleryItems = document.querySelectorAll('.gallery-item');
       galleryItems.forEach(item => {
@@ -260,8 +335,8 @@
           item.style.display = 'none';
         }
       });
+      closeModal(); // Zavrie modálne okno po zmene kategórie
     }
   </script>
-  </body>
-  </html>
-  
+</body>
+</html>
