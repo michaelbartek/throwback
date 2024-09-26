@@ -254,20 +254,6 @@
       });
       closeModal(); // Zavrie modálne okno po zmene kategórie
     }
-    function openPhoto(photoUrl) {
-      window.open(photoUrl, '_self');
-    }
-  
-    function filterCategory(category) {
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      galleryItems.forEach(item => {
-        if (category === 'all' || item.dataset.category === category) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
   </script>
   </body>
   </html>
