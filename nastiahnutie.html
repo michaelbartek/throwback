@@ -21,19 +21,21 @@
 </head>
 
 <style>
-  a {
+  .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    a {
             font-size: 18px;
-            font-family: monospace;
+            font-family: Arial, sans-serif;
             text-decoration: none;
             color: #222222;
-            display: inline-block;
             padding: 10px 20px;
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-      }
+            margin: 0 10px; /* Space between links */
+            border: 1px solid #222222; /* Optional border for visibility */
+        }
 </style>
   
 <body>
@@ -45,9 +47,10 @@
     <a href="bartek.html">DOMOV</a>
   </div>
 
+  <div class="center-container">
   <a href="download/font_guidelines_clean.pdf" download><p>Pismová osnova (čistá) / Font guidelines (only lines)</p></a>
   <a href="download/font_guidelines.pdf" download><p>Pismová osnova (s rozšírenou latinkou) / Font guidelines (with extended latin alphabeth)</p></a>
-  
+  </div>
   
   </body>
   </html>
