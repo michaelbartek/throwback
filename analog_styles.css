@@ -9,12 +9,12 @@ html {
   }
 
 @font-face {
-    font-family: UnholyTrade2;
-    src: url(UnholyTrade2.otf);
+    font-family: Bartek-Industry;
+    src: url(Bartek-Industry.ttf);
   }
 
 body, html {
-    font-family: "UnholyTrade2";
+    font-family: "Bartek-Industry";
     scroll-behavior: smooth;
     background-color: #333;
 }
