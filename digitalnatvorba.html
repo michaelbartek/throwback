@@ -157,8 +157,17 @@
 </div>
 
 <div style="padding: 2%; width: 70%;  display: block; margin-left: auto; margin-right: auto; "><p style="font-family: monospace; font-size: 18pt;">Balík Adobe je základ tvorby dizajnu. Pre 3D dizajn využívam open-source program Blender. Rôzné iné projekty si vyžadujú kódovacie, zvukové, animačné programy alebo herný engine.</p></div>
+<div class="popup-bar" id="popupBar">
+        <button class="close-btn" onclick="closePopup()">×</button>
+        Niektoré obrázky sa môžu dlhšie načítavať, pretože sú v plnej kvalite. / Pre lepšie zobrazenie 3D prehrávača, odporúčam použiť PC.
+    </div>
 
-<div style="padding: 2%; width: 70%;  display: block; margin-left: auto; margin-right: auto; "><p style="font-family: monospace; font-size: 11pt;">Pre lepšie zobrazenie 3D prehrávača, odporúčam použiť PC</p></div>
+    <script>
+        // Function to close the pop-up bar
+        function closePopup() {
+            document.getElementById("popupBar").style.display = "none";
+        }
+    </script>
 
 <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
 <spline-viewer style="width: 65%; margin-left:auto;margin-right:auto; padding: 1%;" url="https://prod.spline.design/EQBIDLdjHHIeaJYi/scene.splinecode"></spline-viewer>
