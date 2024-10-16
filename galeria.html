@@ -127,6 +127,17 @@
   <div style="padding: 1%; width: 70%; display: block; margin-left: auto; margin-right: auto;">
     <p style="font-family: monospace; font-size: 15pt; color:#fff; ">Použité filmy : Ilford HP5+ 400ISO / Fujifilm Superia 200ISO / Fomapan 200ISO / Fujifilm 200ISO</p>
   </div>
+  <div class="popup-bar" id="popupBar">
+        <button class="close-btn" onclick="closePopup()">×</button>
+        Niektoré obrázky sa môžu dlhšie načítavať, pretože sú v plnej kvalite.
+    </div>
+
+    <script>
+        // Function to close the pop-up bar
+        function closePopup() {
+            document.getElementById("popupBar").style.display = "none";
+        }
+    </script>
 
   <div class="gallery">
     <div class="gallery-item" data-category="portret">
