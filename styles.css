@@ -366,3 +366,32 @@ height: 50px;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
   }
+
+    /* Style for the pop-up bar */
+        .popup-bar {
+            background-color: #222222;
+            color: #f2f2f2;
+            padding: 20px;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            font-size: 16px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Close button style */
+        .popup-bar .close-btn {
+            background-color: transparent;
+            border: none;
+            color: #f2f2f2;
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: 15px;
+        }
