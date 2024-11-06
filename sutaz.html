@@ -94,9 +94,9 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
                 document.getElementById("countdown").innerHTML =
-                    days + " d " + hours + " h " + minutes + " m";
+                    text + " Končí o: " + days + " d " + hours + " h " + minutes + " m";
             } else {
-                document.getElementById("countdown").innerHTML = "Čas vypršel!";
+                document.getElementById("countdown").innerHTML = "Súťaž skončila!";
             }
         }
 
