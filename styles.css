@@ -143,6 +143,12 @@ section {
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
+#subory {
+    background: #eaeaea;
+    animation: appear ease-in-out;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
 
 #reviews {
     background: #f4f4f4;
