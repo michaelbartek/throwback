@@ -1,113 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form with Drag and Drop</title>
+    <title>Formulár s drag and drop</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
+            height: 100vh;
             margin: 0;
         }
 
-        form {
-            background: #fff;
+        .container {
+            background-color: white;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-        }
-
-        label, input, textarea, .drag-and-drop, button {
-            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            margin-bottom: 15px;
+            max-width: 600px;
         }
 
-        input, textarea, button {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .drag-and-drop {
-            padding: 20px;
-            border: 2px dashed #ccc;
+        h2 {
             text-align: center;
-            cursor: pointer;
-            color: #777;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        textarea {
+            resize: vertical;
         }
 
         button {
-            background-color: #007BFF;
-            color: #fff;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
         }
 
         button:hover {
             background-color: #0056b3;
         }
+
+        /* Drag and drop area */
+        .drag-drop-area {
+            border: 2px dashed #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .drag-drop-area p {
+            margin: 0;
+            color: #007bff;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <form id="contactForm" action="sendMail.php" method="POST" enctype="multipart/form-data">
-        <h2>Contact Us</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+    <div class="container">
+        <h2>Kontaktujte nás</h2>
+        <form id="contact-form" action="send-email.php" method="POST" enctype="multipart/form-data">
+            <label for="name">Vaše meno:</label>
+            <input type="text" id="name" name="name" required>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
+            <label for="email">Váš email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <div class="drag-and-drop" id="dropZone">
-            Drag and drop files here or click to select
-            <input type="file" id="fileInput" name="fileInput[]" multiple>
-        </div>
-        
-        <button type="submit">Send</button>
-    </form>
+            <label for="message">Vaša správa:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <label for="file-upload" class="file-upload-label">Priložte súbory:</label>
+            <div id="drag-drop-area" class="drag-drop-area">
+                <p>Presuňte súbory sem alebo kliknite pre výber.</p>
+                <input type="file" id="file-upload" name="file[]" multiple>
+            </div>
+
+            <button type="submit">Odoslať</button>
+        </form>
+    </div>
 
     <script>
-        document.getElementById('dropZone').addEventListener('click', () => {
-            document.getElementById('fileInput').click();
-        });
-
-        document.getElementById('fileInput').addEventListener('change', (event) => {
-            const files = event.target.files;
-            handleFiles(files);
-        });
-
-        document.getElementById('dropZone').addEventListener('dragover', (event) => {
+        // Skript na podporu drag and drop
+        document.getElementById('drag-drop-area').addEventListener('dragover', function(event) {
             event.preventDefault();
-            event.target.style.borderColor = '#007BFF';
+            event.stopPropagation();
+            this.style.backgroundColor = '#f0f0f0';
         });
 
-        document.getElementById('dropZone').addEventListener('dragleave', (event) => {
+        document.getElementById('drag-drop-area').addEventListener('dragleave', function(event) {
             event.preventDefault();
-            event.target.style.borderColor = '#ccc';
+            event.stopPropagation();
+            this.style.backgroundColor = 'transparent';
         });
 
-        document.getElementById('dropZone').addEventListener('drop', (event) => {
+        document.getElementById('drag-drop-area').addEventListener('drop', function(event) {
             event.preventDefault();
-            event.target.style.borderColor = '#ccc';
-            const files = event.dataTransfer.files;
-            document.getElementById('fileInput').files = files;
-            handleFiles(files);
-        });
+            event.stopPropagation();
+            this.style.backgroundColor = 'transparent';
 
-        function handleFiles(files) {
-            console.log('Files added:', files);
-            // You can add logic to display the files or process them.
-        }
+            let files = event.dataTransfer.files;
+            document.getElementById('file-upload').files = files;
+        });
     </script>
 </body>
 </html>
