@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Drag and Drop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .form-field {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .drag-drop-area {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .drag-drop-area.drag-over {
+            border-color: #000;
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-form">
+        <form id="contactForm">
+            <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="drag-drop-area" id="dragDropArea">
+                Drag and drop files here or click to upload
+                <input type="file" id="fileInput" name="files" multiple style="display:none;">
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- Include EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('YOUR_USER_ID'); // Replace with your actual EmailJS user ID
+        })();
+
+        // Handle drag and drop
+        const dragDropArea = document.getElementById('dragDropArea');
+        const fileInput = document.getElementById('fileInput');
+
+        dragDropArea.addEventListener('click', () => fileInput.click());
+        dragDropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dragDropArea.classList.add('drag-over');
+        });
+        dragDropArea.addEventListener('dragleave', () => {
+            dragDropArea.classList.remove('drag-over');
+        });
+        dragDropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dragDropArea.classList.remove('drag-over');
+            fileInput.files = e.dataTransfer.files;
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const attachments = fileInput.files;
+
+            const formObj = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+
+            // Send the form data using EmailJS
+            try {
+                await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formObj); // Replace with your service and template IDs
+                alert('Message sent successfully!');
+                e.target.reset();
+                fileInput.value = ''; // Reset the file input
+            } catch (error) {
+                alert('Failed to send message. Try again later.');
+            }
+        });
+    </script>
+</body>
+</html>
