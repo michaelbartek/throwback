@@ -3,133 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulár s drag and drop</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            padding: 10px;
-            margin-bottom: 12px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        button {
-            padding: 12px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Drag and drop area */
-        .drag-drop-area {
-            border: 2px dashed #007bff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .drag-drop-area p {
-            margin: 0;
-            color: #007bff;
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-    </style>
+    <title>Kontaktný formulár</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Kontaktujte nás</h2>
-        <form id="contact-form" action="send-email.php" method="POST" enctype="multipart/form-data">
-            <label for="name">Vaše meno:</label>
-            <input type="text" id="name" name="name" required>
 
-            <label for="email">Váš email:</label>
-            <input type="email" id="email" name="email" required>
+    <h2>Kontaktný formulár</h2>
 
-            <label for="message">Vaša správa:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+        <!-- Meno -->
+        <label for="first-name">Meno:</label>
+        <input type="text" id="first-name" name="first-name" required>
+        <br><br>
 
-            <label for="file-upload" class="file-upload-label">Priložte súbory:</label>
-            <div id="drag-drop-area" class="drag-drop-area">
-                <p>Presuňte súbory sem alebo kliknite pre výber.</p>
-                <input type="file" id="file-upload" name="file[]" multiple>
-            </div>
+        <!-- Priezvisko -->
+        <label for="last-name">Priezvisko:</label>
+        <input type="text" id="last-name" name="last-name" required>
+        <br><br>
 
-            <button type="submit">Odoslať</button>
-        </form>
-    </div>
+        <!-- E-mail -->
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
 
-    <script>
-        // Skript na podporu drag and drop
-        document.getElementById('drag-drop-area').addEventListener('dragover', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.style.backgroundColor = '#f0f0f0';
-        });
+        <!-- Správa -->
+        <label for="message">Správa:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <br><br>
 
-        document.getElementById('drag-drop-area').addEventListener('dragleave', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.style.backgroundColor = 'transparent';
-        });
+        <!-- Nahratie fotografie -->
+        <label for="photo">Vyberte fotografiu:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+        <br><br>
 
-        document.getElementById('drag-drop-area').addEventListener('drop', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.style.backgroundColor = 'transparent';
+        <!-- Odoslanie formulára -->
+        <button type="submit">Odoslať</button>
+    </form>
 
-            let files = event.dataTransfer.files;
-            document.getElementById('file-upload').files = files;
-        });
-    </script>
 </body>
 </html>
