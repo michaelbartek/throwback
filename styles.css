@@ -444,16 +444,17 @@ height: 50px;
    }
    .textik3{
     padding: 2%;
-   background-color: #6667AB;
-   color: #f2f2f2;
+   background-color: #f2f2f2;
+   color: #222222;
    font-size: 15pt;
    width: 25%;
-   border-top-left-radius: 5px; 
+   border-bottom-left-radius: 5px; 
+   border-top-right-radius: 5px; 
 
    }
 
 .textik3:hover {
-    background-color: #444577;
+    background-color: #6667ab;
 }
 
 /* Responsive Styling */
