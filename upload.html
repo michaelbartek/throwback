@@ -1,27 +1,113 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulár</title>
+    <title>Contact Form with Drag and Drop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        label, input, textarea, .drag-and-drop, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        input, textarea, button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .drag-and-drop {
+            padding: 20px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            cursor: pointer;
+            color: #777;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Formulár na odoslanie správy a fotografie</h2>
-    <form action="odoslat.php" method="post" enctype="multipart/form-data">
-        <label for="meno">Meno:</label><br>
-        <input type="text" id="meno" name="meno" required><br><br>
+    <form id="contactForm" action="sendMail.php" method="POST" enctype="multipart/form-data">
+        <h2>Contact Us</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-        <label for="priezvisko">Priezvisko:</label><br>
-        <input type="text" id="priezvisko" name="priezvisko" required><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
 
-        <label for="sprava">Správa:</label><br>
-        <textarea id="sprava" name="sprava" rows="4" cols="50" required></textarea><br><br>
-
-        <label for="fotografia">Nahrajte fotografiu:</label><br>
-        <input type="file" id="fotografia" name="fotografia" accept="image/*" required><br><br>
-
-        <input type="submit" value="Odoslať">
+        <div class="drag-and-drop" id="dropZone">
+            Drag and drop files here or click to select
+            <input type="file" id="fileInput" name="fileInput[]" multiple>
+        </div>
+        
+        <button type="submit">Send</button>
     </form>
+
+    <script>
+        document.getElementById('dropZone').addEventListener('click', () => {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', (event) => {
+            const files = event.target.files;
+            handleFiles(files);
+        });
+
+        document.getElementById('dropZone').addEventListener('dragover', (event) => {
+            event.preventDefault();
+            event.target.style.borderColor = '#007BFF';
+        });
+
+        document.getElementById('dropZone').addEventListener('dragleave', (event) => {
+            event.preventDefault();
+            event.target.style.borderColor = '#ccc';
+        });
+
+        document.getElementById('dropZone').addEventListener('drop', (event) => {
+            event.preventDefault();
+            event.target.style.borderColor = '#ccc';
+            const files = event.dataTransfer.files;
+            document.getElementById('fileInput').files = files;
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            console.log('Files added:', files);
+            // You can add logic to display the files or process them.
+        }
+    </script>
 </body>
 </html>
