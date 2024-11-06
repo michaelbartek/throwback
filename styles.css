@@ -433,7 +433,7 @@ height: 50px;
  font-size: 18pt;
 
 }
-.textik2{
+#countdown {
     text-align: center ;
     font-size: 18pt;
    
@@ -458,3 +458,4 @@ height: 50px;
         width: 100%; /* Full width for smaller screens */
     }
 }
+
