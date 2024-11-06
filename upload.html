@@ -7,51 +7,8 @@
     <title>Formulár</title>
 </head>
 <body>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $meno = htmlspecialchars($_POST['meno']);
-        $priezvisko = htmlspecialchars($_POST['priezvisko']);
-        $sprava = htmlspecialchars($_POST['sprava']);
-        $to = 'm.bartek@throwback.sk';
-        $subject = 'Nová správa z formulára';
-
-        // Skladanie správy
-        $message = "Meno: $meno\n";
-        $message .= "Priezvisko: $priezvisko\n";
-        $message .= "Správa:\n$sprava\n";
-
-        // Hlavičky
-        $headers = "From: webmaster@vasa-domena.sk"; // Upravte podľa potreby
-
-        // Spracovanie súboru
-        if (isset($_FILES['fotografia']) && $_FILES['fotografia']['error'] === UPLOAD_ERR_OK) {
-            $file = $_FILES['fotografia'];
-            $filePath = $file['tmp_name'];
-            $fileName = $file['name'];
-
-            // Použitie PHPMailer na odoslanie e-mailu so súborom ako prílohou
-            require 'PHPMailer/PHPMailerAutoload.php'; // Cesta k PHPMailer knižnici
-
-            $mail = new PHPMailer();
-            $mail->setFrom('webmaster@vasa-domena.sk', 'Web Form');
-            $mail->addAddress($to);
-            $mail->Subject = $subject;
-            $mail->Body = $message;
-            $mail->addAttachment($filePath, $fileName);
-
-            if ($mail->send()) {
-                echo '<p>Správa bola úspešne odoslaná.</p>';
-            } else {
-                echo '<p>Nastala chyba pri odosielaní správy.</p>';
-            }
-        } else {
-            echo '<p>Nastala chyba pri nahrávaní fotografie.</p>';
-        }
-    }
-    ?>
-
     <h2>Formulár na odoslanie správy a fotografie</h2>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="odoslat.php" method="post" enctype="multipart/form-data">
         <label for="meno">Meno:</label><br>
         <input type="text" id="meno" name="meno" required><br><br>
 
