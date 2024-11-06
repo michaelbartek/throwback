@@ -452,8 +452,3 @@ height: 50px;
         width: 100%; /* Full width for smaller screens */
     }
 }
-@font-face {
-    font-family: Bartek-Industry;
-    src: url(Bartek-Industry.ttf);
-  }
-
