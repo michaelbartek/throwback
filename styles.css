@@ -1,4 +1,4 @@
-* {
+er* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -460,7 +460,7 @@ height: 50px;
    }
 
 .textik3:hover {
-    background-color: #d7be08;
+    background-color: #ffee7b ;
     color: #222222;
 }
 
