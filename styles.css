@@ -502,3 +502,25 @@ height: 50px;
 .dropdownsutaz:hover .dropdown-contentsutaz {
     display: block; /* Ensures dropdown content appears on hover */
 }
+.navbarsutaz {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 18pt;
+    display: flex;
+    justify-content: center;
+}
+.navbarsutaz a {
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 16px;
+    display: inline-block;
+}
+
+.navbarsutaz a:hover {
+    background-color: #d7be08;
+    color: #222222;
+}
