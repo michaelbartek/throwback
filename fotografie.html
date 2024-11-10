@@ -125,7 +125,17 @@
     <button onclick="filterCategory('2021')">2021</button>
   
     <div style="padding: 1%; width: 70%; display: block; margin-left: auto; margin-right: auto;  "><p style="font-family: monospace; font-size: 15pt;">Fotografujem prevažne so značkou Nikon. Za prvý rok fotografovania na kino-film som preferoval značku filmu Ilford HP5+ a fotografie môžete nájsť na druhej web stránke <a style="text-decoration: none; color:#333; font-family: Bartek-Industry;" href="analog.html">Keď film čas zastavil.</a></p></div>
-  
+  <div class="popup-bar" id="popupBar">
+        <button class="close-btn" onclick="closePopup()">×</button>
+        Niektoré obrázky sa môžu dlhšie načítavať, pretože sú v plnej kvalite.
+    </div>
+
+    <script>
+        // Function to close the pop-up bar
+        function closePopup() {
+            document.getElementById("popupBar").style.display = "none";
+        }
+    </script>
 
   <div class="gallery">
     <div class="gallery-item" data-category="2024">
