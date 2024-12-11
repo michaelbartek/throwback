@@ -632,3 +632,14 @@ height: 50px;
 .leaderboard-table tr:hover {
     background-color: #ddd;
 }
+.circlu {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .circlu img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
