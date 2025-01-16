@@ -18,111 +18,59 @@
     <meta name="description" content="Ponúkam služby fotografie eventov a otvorených akcií, video tvorbu či grafické práce. Taktiež tu môžete nájsť blog na tému analogovéj fotografie. Throwback Graphics - Michael Bartek">
     <meta name="keywords" content="ThrowBack, throwback.sk, throwback sk, throwbacksk, Throwback, TBG, Throwback Graphics, Michael Bartek, trowback graphic, Grafika, Gaficky dizajn, fotografia, atelier, video, kinematografia, animacia, nádych kreativity, tvorba, Umenie, Art, photography, Žilina, Rajecká Lesná, filmova tvorba, reklama, reklamna agentura, dizajn, design, štúdio">
     <meta name="author" content="Michael Bartek,">
-<style>
-  @font-face {
-    font-family: Bartek-Industry;
-    src: url(Bartek-Industry.ttf);
-  }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+ <style>
         body {
-            
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8d7da;
+            color: #721c24;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
-        .row {
-            flex: 1;
-            position: relative;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .button-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-          font-family: Bartek-Industry;
-          font-size: 20pt;
-            transform: translate(-50%, -50%);
-            z-index: 1; /* Vyššia hodnota, aby bolo tlačidlo nad iframe */
-        }
-
-        .button1 {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
+        .alert-container {
             text-align: center;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
         }
 
-        .button1:hover {
-            background-color: #6667ab;
+        .alert-container h1 {
+            margin: 0 0 10px;
+            font-size: 24px;
         }
-        .buton2 {
-                  display: inline-block;
-                  padding: 10px 20px;
-                  background-color: #333;
-                  color: white;
-                  text-decoration: none;
-                  border-radius: 10px;
-                  text-align: center;
-                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-              }
-      
-        .buton2:hover {
-                  background-color: #BE3455;
+
+        .alert-container p {
+            margin: 10px 0;
+            font-size: 18px;
         }
-        .buton3 {
-                  display: inline-block;
-                  padding: 10px 20px;
-                  background-color: #333;
-                  color: white;
-                  text-decoration: none;
-                  border-radius: 10px;
-                  text-align: center;
-                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-              }
-      
-        .buton3:hover {
-                  background-color: #f2f2f2;
-                  color: #333;
+
+        .contact {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .contact a {
+            color: #721c24;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <!-- Prvý riadok -->
-    <div class="row">
-        <div class="button-container">
-            <a href="bartek.html" class="button1">Michael Bartek - Fotograf</a>
-        </div>
-        <iframe src="https://my.spline.design/untitledcopy-b9bee4c0b8b3e904669d10851530bbad/"></iframe>
+    <div class="alert-container">
+        <h1>Web je dočasne nedostupný</h1>
+        <p>Ospravedlňujeme sa za nepríjemnosti. Na vyriešení problému pracujeme.</p>
+        <p class="contact">Kontakt: <a href="https://instagram.com/mb_.michael" target="_blank">@mb_.michael</a> / <a href="mailto:michal.bartek@throwback.sk">michal.bartek@throwback.sk</a></p>
     </div>
-
-    <!-- Druhý riadok -->
-    <div class="row">
-        <div class="button-container">
-            <a href="analog.html" class="buton2">Keď film čas zastavil!</a>
-        </div>
-        <iframe src="https://my.spline.design/untitled-70a27b2ea41a4e0a6b3897841f6af48c/"></iframe>
-    </div>
-    <!--  <div class="row">
-        <div class="button-container">
-            <a href="login.php" class="buton3">Súťaž - FotoMaster</a>
-        </div>
-        <iframe src="https://my.spline.design/untitled-8b2e7483708588c846d54fb2dd1e3f5a/"></iframe>
-    </div>-->
 </body>
+</html>
