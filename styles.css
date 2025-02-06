@@ -91,7 +91,7 @@ body {
     .navbar {
         padding: 15px 20px;
     }
-    .menu {
+    .menu2 {
         display: none;
         flex-direction: column;
         position: absolute;
@@ -105,15 +105,15 @@ body {
     }
 }
 
-    .menu.active {
+    .menu2.active {
         display: flex;
     }
 
-    .menu li {
+    .menu2 li {
         margin: 10px 0;
     }
 
-    .menu-toggle {
+    .menu2-toggle {
         display: block;
     }
 }
