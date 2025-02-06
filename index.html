@@ -37,15 +37,15 @@
         </div>
         
         <div class="mySlides fade">
-          <img src="image/image.jpg" style="width:100%">
+          <img src="image/image2.jpg" style="width:100%">
         </div>
         
         <div class="mySlides fade">
-          <img src="image/image.jpg" style="width:100%">
+          <img src="image/image3.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <img src="image/image.jpg" style="width:100%">
+            <img src="image/image4.jpg" style="width:100%">
         </div>
         
         <a class="prev" onclick="plusSlides(-1)"></a>
@@ -60,13 +60,36 @@
           <span class="dot" onclick="currentSlide(3)"></span> 
           <span class="dot" onclick="currentSlide(4)"></span> 
         </div>
+ 
         
-        
-
-
 <h2>Projekty</h2>
 
+<div class="grid">
+  <div class="grid-item">
+    <a href="projects.html"><img src="image/image2.jpg" alt="Obrázok 1"></a>
+      <h3>Popis obrázka 1</h3>
+      <p>Popis obrázka 1</p>
+  </div>
+  <div class="grid-item">
+    <a href="projects.html"><img src="image/image3.jpg" alt="Obrázok 2"></a>
+    <h3>Popis obrázka 1</h3>
+    <p>Popis obrázka 1</p>
+  </div>
+  <div class="grid-item">
+    <a href="projects.html"><img src="image/image4.jpg" alt="Obrázok 3"></a>
+    <h3>Popis obrázka 1</h3>
+    <p>Popis obrázka 1</p>
+  </div>
+  <div class="grid-item">
+    <a href="projects.html"><img src="image/image5.jpg" alt="Obrázok 4"></a>
+    <h3>Popis obrázka 1</h3>
+    <p>Popis obrázka 1</p>
+  </div>
+</div>
+
+
     <footer class="footer">
+      <div class="divider"></div>
         <div class="footer-container">
             <div class="footer-column1">
                 <h4><a href="">Obchodné Podmienky</a></h4> <!-- hyperlink doplnit ⚠️ -->
@@ -90,11 +113,11 @@
             <div class="footer-column3">
                 <h4><a href="contacts.html">Kontakt</a></h4>
                 <br>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Mail bol skopírovaný!'))">info@spejs.studio</p>
+                <p class="alert" id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Mail bol skopírovaný!'))">info@spejs.studio</p>
                 <br>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Kontakt bol skopírovaný!'))">+421 908 600 632</p>
+                <p class="alert" id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Kontakt bol skopírovaný!'))">+421 908 600 632</p>
                 <br>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Kontakt bol skopírovaný!'))">+421 902 598 892</p>
+                <p class="alert" id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Kontakt bol skopírovaný!'))">+421 902 598 892</p>
             </div>
             <div class="footer-column4">
                 <h4>Socialne siete</h4>
@@ -108,6 +131,7 @@
         </div>
         <div class="copyright">© 2025 Spejs Studio s.r.o - Všetky práva vyhradené</div>
     </footer>
+
 
     <script>
         let slideIndex = 1;
