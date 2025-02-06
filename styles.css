@@ -91,7 +91,6 @@ body {
     .navbar {
         padding: 15px 20px;
     }
-
     .menu {
         display: none;
         flex-direction: column;
@@ -102,7 +101,9 @@ body {
         background-color: var(--spejsw);
         padding: 10px 0;
         text-align: center;
+        gap: 15px; /* Menší gap pre mobilné zobrazenie */
     }
+}
 
     .menu.active {
         display: flex;
