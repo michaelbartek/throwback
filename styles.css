@@ -88,10 +88,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-    .menu2 {
+    .menu {
         display: none;
         flex-direction: column;
         position: absolute;
@@ -105,15 +102,15 @@ body {
     }
 }
 
-    .menu2.active {
+    .menu.active {
         display: flex;
     }
 
-    .menu2 li {
+    .menu li {
         margin: 10px 0;
     }
 
-    .menu2-toggle {
+    .menu-toggle {
         display: block;
     }
 }
