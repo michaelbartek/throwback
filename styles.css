@@ -81,6 +81,41 @@ body {
     color: var(--spejsb);
     font-size: 20px;
 }
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--spejsw);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
     
 
 .footer {                                                     /* PATA */
@@ -181,7 +216,7 @@ body {
     transition: 1.9s ease;
   }
   
-  .active, .dot:hover {
+  .actives, .dot:hover {
     background-color: var(--spejsp);
   }
   
