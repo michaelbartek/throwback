@@ -1,170 +1,270 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Popis stránky pre SEO a používateľov"> <!-- Popis doplnit ⚠️ -->
-    <meta name="author" content="Spejs Studio s.r.o."> 
-    <meta name="robots" content="index, follow">
-    
-    <title>Spejs</title>
+* {                                                                          /* RESPONZIVITA WEBU*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}                                                                              
+                                                                                        
 
-    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
-    <link rel="stylesheet" href="styles.css">
-    
-    <meta property="og:title" content="Spejs Studio">
-    <meta property="og:description" content="Popis stránky"> <!-- Popis doplnit ⚠️ -->
-    <meta property="og:image" content="https://spejs.studio/XXXX.png">
-    <meta property="og:url" content="https://spejs.studio">
-</head>
-<body>
-
-  <nav class="navbar">
-    <div class="logo">
-        <a href="index.html"><img src="svg/logo.svg" alt="Logo"></a>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul class="menu">
-        <li><a href="pricing.html">Služby</a></li>
-        <li><a href="projects.html">Projekty</a></li>
-        <li><a href="spejs.html">Spejs</a></li>
-        <li><a href="contact.html">Kontakty</a></li>
-    </ul>
-</nav>
-
-
-    <div class="slideshow-container">
-
-        <div class="mySlides fade">
-          <img src="image/image.jpg" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="image/image2.jpg" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="image/image3.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <img src="image/image4.jpg" style="width:100%">
-        </div>
-        
-        <a class="prev" onclick="plusSlides(-1)"></a>
-        <a class="next" onclick="plusSlides(1)"></a>
-        
-        </div>
-        <br>
-        
-        <div style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span> 
-          <span class="dot" onclick="currentSlide(2)"></span> 
-          <span class="dot" onclick="currentSlide(3)"></span> 
-          <span class="dot" onclick="currentSlide(4)"></span> 
-        </div>
- 
-        
-<h2>Projekty</h2>
-
-<div class="grid">
-  <div class="grid-item">
-    <a href="projects.html"><img src="image/image2.jpg" alt="Obrázok 1"></a>
-      <h3>Žilina</h3>
-      <p>Reality Astoria</p>
-  </div>
-  <div class="grid-item">
-    <a href="projects.html"><img src="image/image3.jpg" alt="Obrázok 2"></a>
-    <h3>Prievidza</h3>
-    <p>Maxa Reality</p>
-  </div>
-  <div class="grid-item">
-    <a href="projects.html"><img src="image/image4.jpg" alt="Obrázok 3"></a>
-    <h3>Žilina</h3>
-    <p>Reality IQ</p>
-  </div>
-  <div class="grid-item">
-    <a href="projects.html"><img src="image/image5.jpg" alt="Obrázok 4"></a>
-    <h3>Považská Bystrica</h3>
-    <p>Reality Elite</p>
-  </div>
-</div>
-
-
-    <footer class="footer">
-      <div class="divider"></div>
-        <div class="footer-container">
-            <div class="footer-column1">
-                <h4><a href="documents/Obchodné Podmienky Spejs Studio s.r.o..pdf" target="_blank">Obchodné Podmienky</a></h4> <!-- hyperlink doplnit ⚠️ -->
-                <br>
-                <p><a href="documents/Ochrana Osobných Údajov Spejs Studio s.r.o..pdf" target="_blank">Zásady ochrany osobných údajov</a></p> <!-- hyperlink doplnit ⚠️ -->
-                <br>
-                <p><a href="pricing.html">Služby</a></p>
-                <br>
-                <p><a href="projects.html">Projekty</a></p>
-            </div>
-            <div class="footer-column2"> <!-- udaje doplnit ⚠️ -->
-                <h4>Fakturačné údaje</h4>
-                <br>
-                <p>Spejs Studio s.r.o.</p>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Adresa bola skopírovaný!'))">Hlavná 123, 010 01 Žilina, Slovensko</p>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('IČO bolo skopírovaný!'))">IČO: 12345678 DIČ: 987654321</p>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('IČ DPH bolo skopírovaný!'))">IČ DPH: SK987654321</p>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('IBAN bol skopírovaný!'))">Bankový účet: SK12 0000 0000 1234 0000 1234</p>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('SWIFT/BIC bol skopírovaný!'))">SWIFT/BIC: TATRSKBX </p>
-            </div>
-            <div class="footer-column3">
-                <h4><a href="contacts.html">Kontakt</a></h4>
-                <br>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Mail bol skopírovaný!'))">info@spejs.studio</p>
-                <br>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Kontakt bol skopírovaný!'))">+421 908 600 632</p>
-                <br>
-                <p id="copyText" onclick="navigator.clipboard.writeText(this.innerText).then(() => alert('Kontakt bol skopírovaný!'))">+421 902 598 892</p>
-            </div>
-            <div class="footer-column4">
-                <h4>Socialne siete</h4>
-                <br>
-                <p><a href="https://www.youtube.com/@mb_.michael">Youtube</a></p><!-- udaje doplnit ⚠️ -->
-                <br>
-                <p><a href="https://www.behance.net/mbmichael">Adobe Behance</a></p><!-- udaje doplnit ⚠️ -->
-                <br>
-                <p><a href="https://www.instagram.com/mb_.michael/">Instagram</a></p><!-- udaje doplnit ⚠️ -->
-            </div>
-        </div>
-        <div class="copyright">© 2025 Spejs Studio s.r.o - Všetky práva vyhradené</div>
-    </footer>
-
-
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-        
-        function plusSlides(n) {
-          showSlides(slideIndex += n);
-        }
-        
-        function currentSlide(n) {
-          showSlides(slideIndex = n);
-        }
-        
-        function showSlides(n) {
-          let i;
-          let slides = document.getElementsByClassName("mySlides");
-          let dots = document.getElementsByClassName("dot");
-          if (n > slides.length) {slideIndex = 1}    
-          if (n < 1) {slideIndex = slides.length}
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-          }
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" actives", "");
-          }
-          slides[slideIndex-1].style.display = "block";  
-          dots[slideIndex-1].className += " actives";
-        }
-function toggleMenu() {
-    document.querySelector(".menu").classList.toggle("active");
+::-webkit-scrollbar {                                                            /* DEFINOVANIE WEBU */
+    display: none;
+}  
+h2 {
+    font-family: 'Monserrat', sans-serif;
+    margin-top: 5%;
+    margin-left: 7.5%;
+    font-size: 24px;
 }
 
-        
-        </script>
-</body>
+@font-face { 
+    font-family: 'Audiowide';
+    src: url('font/Audiowide-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+} /* font*/
+@font-face { 
+    font-family: 'Monserrat';
+    src: url('font/Montserrat-Regular.ttf') format('ttf');
+    src: url('font/Montserrat-Bold.ttf') format('ttf');
+    src: url('font/Montserrat-Italic.ttf') format('ttf');
+    src: url('font/Montserrat-Light.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+} /* font*/
+
+  :root { 
+    --spejsb: #1f1f1f; 
+  }/* DEFINOVANIE ČIERNEJ*/
+  :root { 
+    --spejsw: #f2f2f2;
+  }/* DEFINOVANIE BIELEJ*/
+  :root { 
+    --spejsp: #662D91;
+  }/* DEFINOVANIE FIALOVEJ*/
+  :root { 
+    --spejso: #FAA440;
+  }/* DEFINOVANIE ORANŽOVEJ*/
+
+body {
+    background-color: var(--spejsw);
+    margin: 0;
+} /* vizual tela stranky*/
+
+
+
+
+.navbar {                                                                          /* MENU*/
+    font-family: 'Audiowide', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:15px 100px;
+    background-color: var(--spejsw);
+    position: sticky;
+    top: 0;  /* Udrží navigáciu navrchu pri scrollovaní */
+    z-index: 1000;  /* Zabezpečí, že menu bude nad ostatným obsahom */
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1); /* Jednoduchý tieň */
+    
+}
+.logo img {
+    width: 150px;
+}
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 100px;
+}
+.menu li {
+    display: inline;
+}
+.menu a {
+    text-decoration: none;
+    color: var(--spejsb);
+    font-size: 20px;
+}
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--spejsw);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+    
+
+.footer {                                                     /* PATA */
+    background-color: var(--spejsb);
+    color: var(--spejsw);
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    font-family: 'Monsterrat', sans-serif;
+}
+.footer::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--spejsw);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+.footer-column1 {
+    flex: 1;
+    text-align: left;
+    max-width: 300px;
+    margin: 10px;
+}
+.footer-column2 {
+    flex: 1;
+    text-align: left;
+    max-width: 300px;
+    margin: 10px;
+}
+.footer-column3 {
+    flex: 1;
+    text-align: left;
+    max-width: 150px;
+    margin: 10px;
+}
+.footer-column4 {
+    flex: 1;
+    text-align: left;
+    max-width: 200px;
+    margin: 10px;
+}
+.copyright {
+    
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.divider {
+    width: 88%;
+    height: 2px; /* Hrúbka čiary */
+    background-color: var(--spejsw);
+    margin: 20px auto; /* Centrum na stránke */
+}
+.footer p{
+    text-decoration: none;
+    color: var(--spejsw);
+    cursor: pointer;
+    font-size: 16px;
+}
+.footer a{
+    text-decoration: none;
+    color: var(--spejsw);
+    cursor: pointer;
+}
+
+
+
+                                                            /* SLIDER */
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    max-height: 80%;
+    position: relative;
+    margin: auto;
+    overflow: hidden; 
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #afafaf;
+    border-radius: 50%;
+    display: inline-block;
+    transition: 1.9s ease;
+  }
+  
+  .actives, .dot:hover {
+    background-color: var(--spejsp);
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 2.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+
+  .mySlides {
+    display: none;}
+  
+  img {
+    vertical-align: middle;
+  }
+
+.grid {                                                      /* GRID */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-left: 5%;             
+    }
+
+.grid-item {
+    width: 80%;
+    margin: 5%;
+    }
+
+img {
+    width: 100%;
+            
+            }
+ .grid p{
+    color: var(--spejsb);
+    cursor: pointer;
+    font-family: 'Monsterrat', sans-serif;
+    margin-top: 15px;
+    font-size: 16;
+}
+.grid h3{
+    color: var(--spejsb);
+    cursor: pointer;
+    font-family: 'Montserrat-Bold', sans-serif;
+    margin-top: 15px;
+    font-size: 16;
+}
