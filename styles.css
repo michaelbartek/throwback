@@ -102,6 +102,7 @@ body {
         background-color: var(--spejsw);
         padding: 10px 0;
         text-align: center;
+        gap: 10px;
     }
 
     .menu.active {
