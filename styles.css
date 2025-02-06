@@ -100,11 +100,11 @@ body {
         text-align: center;
         gap: 15px; /* Menší gap pre mobilné zobrazenie */
     }
-}
 
     .menu.active {
         display: flex;
     }
+}
 
     .menu li {
         margin: 10px 0;
