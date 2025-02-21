@@ -16,6 +16,7 @@ html {
 body, html {
     font-family: "Bartek-Industry";
     scroll-behavior: smooth;
+    background-color: #333;
 }
 
 .navbar {
@@ -54,7 +55,7 @@ body, html {
 }
 
 .dropdown-content a:hover {
-    background-color: #6667ab;
+    background-color: #BE3455;
     color: #fff;
 }
 
@@ -70,9 +71,10 @@ body, html {
 }
 
 .navbar a:hover {
-    background-color: #6667ab;
+    background-color: #BE3455;
     color: #fff;
 }
+
 
 .logo {
     color: white;
@@ -101,30 +103,18 @@ section {
 }
 
 #home {
-       background-color: #f2f2f2;
-      background-image: 
-      linear-gradient(45deg, rgb(0 0 0 / 0%) 25%, #6667ab00 25%),
-      linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, #00000000 25%),
-      linear-gradient(45deg, #8583ff00 75%, rgb(0 0 0 / 18%) 75%),
-      linear-gradient(-45deg, #6667ab 75%, rgb(0 0 0 / 0%) 75%);
-      background-size: 40px 40px;
-      background-position: 0 0, 0 20px, 20px -20px, -20px 0;
-    }
-  #domovv {
-        background-color: #f2f2f2;
-       background-image: 
-       linear-gradient(45deg, rgb(0 0 0 / 0%) 25%, #6667ab00 25%),
-       linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, #00000000 25%),
-       linear-gradient(45deg, #8583ff00 75%, rgb(0 0 0 / 18%) 75%),
-       linear-gradient(-45deg, #d7be08 75%, rgb(0 0 0 / 0%) 75%);
-     }
+    background-color: #f2f2f2;
+    background-image: url('aimages/bg.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+}
 
 #offers {
     background: #f4f4f4; 
 }
 
-#portfolio {
-    background: #eaeaea;
+#blog {
+    background: #222;
     animation: appear ease-in-out;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
@@ -143,12 +133,6 @@ section {
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
-#subory {
-    background: #eaeaea;
-    animation: appear ease-in-out;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
 
 #reviews {
     background: #f4f4f4;
@@ -158,29 +142,10 @@ section {
 }
  
 #contact {
-    background: linear-gradient(to right, #6667AB, #9798c6 ); /* Example gradient */
+    background: linear-gradient(to right, #BE3455, #e06e89 ); /* Example gradient */
     animation: appear ease-in-out;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
-}
-#contactsutaz {
-    background: linear-gradient(to right, #d7be08, #ffee7b ); /* Example gradient */
-    animation: appear ease-in-out;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
-h1, h2 {
-    margin-bottom: 20px;
-    font-size: 35pt;
-    color: #f4f4f4;
-    background-color: #333;
-    margin-left: auto;
-    margin-right: auto;
-    width: 65%;
-    border: 2px ;
-    border-radius: 15px; 
-    padding: 3px; 
-    
 }
 
 img {
@@ -191,6 +156,7 @@ img {
 .portfolio-grid {
     font-family: monospace;
     font-size: 15pt;
+    color:#fff; 
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -335,7 +301,8 @@ height: 50px;
     flex: 1;
     width: 100%;
     margin: 10px;
-    background: #fff;
+    background: #333;
+    color:#fff; 
     padding: 20px;
     border-radius: 10px;
     margin-left: auto;
@@ -360,7 +327,7 @@ height: 50px;
     opacity: 1;
     transition: opacity 1s ease;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 20);
-    
+    z
 }
 .circular-image:hover {
     opacity: 0.3;
@@ -382,6 +349,34 @@ height: 50px;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
   }
+  
+  .blog-post {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  .blog-post-novinky {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #BE3455;
+    color: #000;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .blog-post img {
+    max-width: 70%;
+    display: block;
+margin-left: auto;
+margin-right: auto;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
 
     /* Style for the pop-up bar */
         .popup-bar {
@@ -398,7 +393,6 @@ height: 50px;
             width: 90%;
             max-width: 400px;
             text-align: center;
-            text-decoration:none;
         }
 
         /* Close button style */
@@ -412,238 +406,3 @@ height: 50px;
             bottom: 45px;
             right: 15px;
         }
-
-  .container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap; /* Allows the items to wrap to the next line */
-    justify-content: center; /* Center-aligns items */
-}
-
-.rectangle {
-    color: #f2f2f2;
-    width: 500px;
-    background-color: #222;
-    margin: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px; /* Adds space when stacked */
-}
-
-.rectangle img {
-    width: 100%;
-    
-}
-
-.textik{
- padding: 2%;
- font-size: 18pt;
-
-}
-#countdown {
-    text-align: center ;
-    font-size: 18pt;
-    color: #222222;
-   }
-.textik2 {
-    text-align: center ;
-    font-size: 18pt;
-   }
-   
-   .textik3 {
-   padding: 2%;
-   background-color: #f2f2f2;
-   color: #222222;
-   font-size: 15pt;
-   width: 25%;
-   border-bottom-left-radius: 5px; 
-   border-top-right-radius: 5px;
-   }
-   
-.textik3:hover {
-    background-color: #ffee7b ;
-    color: #222222;
-}
-
-   .textik4 {
-    padding: 2%;
-    background-color: #f2f2f2;
-    color: #222; 
-    font-size: 15pt;
-    width: 25%;
-    border-radius: 5px; 
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center; 
-    }
-    .textik4:hover {
-        background-color: #d7be08 ;
-        color: #222222;
-    }
-
-
-/* Responsive Styling */
-@media (max-width: 600px) {
-    .rectangle {
-        width: 100%; /* Full width for smaller screens */
-    }
-}
-
-.dropdownsutaz {
-    display: inline-block;
-    position: relative; /* Ensures that the dropdown content is positioned relative to this element */
-}
-
-.dropdown-contentsutaz {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 20);
-    z-index: 1;
-    min-width: 160px;
-    left: 50%;
-    transform: translateX(-50%); /* Centers the dropdown content */
-}
-
-.dropdown-contentsutaz a {
-    color: #ffffff;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-contentsutaz a:hover {
-    background-color: #d7be08;
-    color: #222222;
-}
-
-.dropdownsutaz:hover .dropdown-contentsutaz {
-    display: block; /* Ensures dropdown content appears on hover */
-}
-.navbarsutaz {
-    background-color: #333;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    font-size: 18pt;
-    display: flex;
-    justify-content: center;
-}
-.navbarsutaz a {
-    color: #fff;
-    text-decoration: none;
-    padding: 14px 16px;
-    display: inline-block;
-}
-
-.navbarsutaz a:hover {
-    background-color: #d7be08;
-    color: #222222;
-}
-
-.loginbutton {
-    font-family: "Bartek-Industry";
-    font-size: 20px;
-    color: #222;
-    background-color: #f2f2f2;
-    border-radius: 15px; 
-    border: none;
-    padding: 8px;
-}
-.loginbutton:hover {
-    color: #f2f2f2;
-    background-color: #222;
-}
-
-.input1 {
-    font-family: monospace;
-    font-size: 18px;
-}
-
-.container2 {
-    background-color: #333;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Zabezpečí, že stĺpce sa môžu zlomiť na nový riadok */
-}
-.left-column2, .right-column2 {
-    width: 48%; /* 48% pre jemnú medzeru medzi stĺpcami */
-    padding: 10px;
-}
-.left-column2 {
-    text-align: left;
-}
-.right-column2 {
-    text-align: right;
-}
-
-/* Media query pre menšie obrazovky */
-@media (max-width: 768px) {
-    .left-column2, .right-column2 {
-        width: 100%; /* Nastaví šírku stĺpcov na 100%, aby sa zoradili pod seba */
-        text-align: center; /* Alternatívne môžete nastaviť text na stred na mobilných zariadeniach */
-    }
-}
-
-/* Základné štýly pre leaderboard */
-.leaderboard-container {
-    width: auto;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
-    font-size: 25px;
-   
-}
-
-.leaderboard-title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: monospace;
-}
-
-.leaderboard-table th, .leaderboard-table td {
-    padding: 10px;
-    text-align: left;
-}
-
-.leaderboard-table th {
-    background-color: #d7be08;
-    color: white;
-}
-
-.leaderboard-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.leaderboard-table tr:hover {
-    background-color: #ddd;
-}
-.circlu {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      overflow: hidden;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center; 
-    margin-top: 5%;
-    }
-    .circlu img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
