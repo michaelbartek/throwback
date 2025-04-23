@@ -638,8 +638,8 @@ height: 50px;
   align-items: center;     /* vertikálne vycentrovanie ak treba */
   gap: 20px;               /* medzera medzi obrázkami */
   width: 100%;             /* roztiahne sa na šírku */
-  height: 200px;           /* výška kontajnera */
+  height: 300px;           /* výška kontajnera */
 }
 
 .circlu img {
-  width: 100px; /* nastav veľkosť obrázku podľa potre*
+  width: 300px; /* nastav veľkosť obrázku podľa potre*
