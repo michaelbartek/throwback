@@ -635,12 +635,7 @@ height: 50px;
 .circlu {
       width: 200px;
       height: 200px;
-      border-radius: 50%;
       overflow: hidden;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center; 
-    margin-top: 5%;
     }
     .circlu img {
       width: 100%;
