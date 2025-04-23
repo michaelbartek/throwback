@@ -633,13 +633,18 @@ height: 50px;
     background-color: #ddd;
 }
 .circlu {
-  display: flex;
-  justify-content: center; /* zarovnanie do stredu */
-  align-items: center;     /* vertikálne vycentrovanie ak treba */
-  gap: 20px;               /* medzera medzi obrázkami */
-  width: 100%;             /* roztiahne sa na šírku */
-  height: 300px;           /* výška kontajnera */
-}
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center; 
+    margin-top: 5%;
+    }
+    .circlu img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.circlu img {
-  width: 300px; /* nastav veľkosť obrázku podľa potre*
