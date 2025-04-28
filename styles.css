@@ -659,6 +659,9 @@ height: 50px;
 .gear-section {
   padding: 60px 20px;
   background-color: #f8f8f8;
+    animation: appear ease-in-out;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
 }
 
 .gear-container {
