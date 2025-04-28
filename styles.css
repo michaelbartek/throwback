@@ -364,6 +364,12 @@ height: 50px;
 .circular-image:hover {
     opacity: 0.3;
 }
+.circula5r-image {
+    border-radius: 5%; /* Makes the image circular */
+    opacity: 1;
+    transition: opacity 1s ease;
+    
+}
 .circular5-image:hover {
     opacity: 0.3;
   }
