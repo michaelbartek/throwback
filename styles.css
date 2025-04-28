@@ -365,6 +365,16 @@ height: 50px;
 .circular-image:hover {
     opacity: 0.3;
   }
+.circular5-image {
+    border-radius: 5%; /* Makes the image circular */
+    opacity: 1;
+    transition: opacity 1s ease;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 20);
+    
+}
+.circular5-image:hover {
+    opacity: 0.3;
+  }
   
   @keyframes appear {
     from {
