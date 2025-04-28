@@ -648,3 +648,45 @@ height: 50px;
       object-fit: cover;
     }
 
+.gear-section {
+  padding: 60px 20px;
+  background-color: #f8f8f8;
+}
+
+.gear-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gear-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.gear-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gear-description {
+  flex: 1 1 400px;
+  padding: 20px;
+}
+
+.gear-description h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.gear-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
