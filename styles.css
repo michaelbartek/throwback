@@ -355,15 +355,40 @@ height: 50px;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
-.circular-image {
-    border-radius: 5%; /* Makes the image circular */
-    opacity: 1;
-    transition: opacity 1s ease;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 20);
-    
+.circular-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 5%;
+  overflow: hidden;
 }
-.circular-image:hover {
-    opacity: 0.3;
+
+.circular-image {
+  border-radius: 5%; /* Makes the image rounded */
+  opacity: 1;
+  transition: transform 0.5s ease;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 100%;
+}
+
+/* Tu pridávame overlay */
+.circular-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #6667ab;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 5%;
+  pointer-events: none; /* aby overlay neblokoval kliknutia na obrazok */
+}
+
+/* Hover efekt */
+.circular-wrapper:hover .circular-overlay {
+  opacity: 0.5;
+}
   }
 .circular5-image {
     border-radius: 5%; /* Makes the image circular */
