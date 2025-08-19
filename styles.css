@@ -124,7 +124,7 @@ section {
 }
 
 #portfolio {
-    background: #eaeaea;
+    background: #f4f4f4;
     animation: appear ease-in-out;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
@@ -673,7 +673,7 @@ height: 50px;
 }
 
 .gear-image {
-  flex: 1 1 600px;
+  flex: 1 1 300px;
   text-align: center;
 }
 
