@@ -341,3 +341,204 @@ body {
 .cursor.click .cursor-inner {
     opacity: 0;
 }
+
+
+
+
+
+
+
+
+/* ===== SERVICES TABLE ===== */
+
+.services-table {
+    padding: 80px 5%;
+    padding-top: 150px;
+    background: #2e2e2e;
+}
+.services-table-2 {
+    padding: 80px 5%;
+    padding-top: 10px;
+    background: #2e2e2e;       
+}
+.table-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 60px;
+}
+
+/* GRID */
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* KARTA */
+.table-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* HORNY PAS (NAZOV + SUMA) */
+.table-header {
+    background: #FAA440;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.table-header-dark {
+    background: #161616;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.table-header-silver{
+    background: #a5a5a5;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+}
+.table-header-purple {
+    background: #6a359c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.table-header h3 {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+.table-header-dark h3 {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+.table-header-silver h3 {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+.table-header-purple h3 {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+.table-price {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* BODY (POLOZKY) */
+.table-body {
+    list-style: disc inside;
+    padding: 20px;
+    margin: 0;
+    background: #fff;
+}
+
+.table-body li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* VARIANTY */
+.table-card.highlight .table-header {
+    background: #ffab40;
+    color: #000;
+}
+@media (max-width: 1000px) {
+    .table-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .table-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Kontajner formulára */
+.contact-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Hlavný štýl formulára */
+.dark-form {
+    background-color: #2e2e2e; /* Tmavošedá/čierna */
+    padding: 30px;
+    border-radius: 20px; /* Zaoblené rohy */
+    color: #ffffff;
+}
+
+.form-title {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Skupiny polí */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #bbbbbb;
+}
+
+/* Vstupy a Select */
+.dark-form input, 
+.dark-form select, 
+.dark-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #161616;
+    border: 1px solid #3d3d3d;
+    border-radius: 12px; /* Zaoblené rohy vnútri */
+    color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box; /* Zabezpečí správnu šírku */
+}
+
+/* Zvýraznenie pri kliknutí */
+.dark-form input:focus, 
+.dark-form select:focus, 
+.dark-form textarea:focus {
+    outline: none;
+    border-color: #6a359c; /* Fialová z tvojho cenníka */
+}
+
+/* Tlačidlo */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #6a359c; /* Fialová farba */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #47216b; /* Svetlejšia fialová pri hovery */
+}
+
+/* Štýl pre placeholder text */
+::placeholder {
+    color: #666666;
+}
