@@ -542,3 +542,15 @@ body {
 ::placeholder {
     color: #666666;
 }
+/* ===== DISABLE CUSTOM CURSOR ON TOUCH DEVICES ===== */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .cursor {
+        display: none;
+    }
+
+    html, body {
+        cursor: auto;
+    }
+}
