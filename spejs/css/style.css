@@ -418,7 +418,7 @@ body {
     text-align: center;
 }
 .table-header-silver{
-    background: #a5a5a5;
+    background: #f1f1e7;
     color: rgb(0, 0, 0);
     padding: 30px;
     text-align: center;
@@ -473,7 +473,7 @@ body {
     text-align: center;
     font-size: 24px;
     font-weight: 600;
-    color: #a5a5a5;
+   color: #f1f1e7;
 }
 .table-footer-purple{
     margin-top: auto;
