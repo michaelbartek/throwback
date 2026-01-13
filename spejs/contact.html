@@ -57,13 +57,63 @@
 
 
          <div class="lang-switch">
-            <a href="index.html">SK</a>
+            <a href="home.html">SK</a>
             <a href="contact.html" class="active">EN</a>
        </div>
     </div>
     </div>
 </header>
+<section class="contact">
 
+    <div class="contact-image">
+        <img src="images/contact.jpg" alt="Kontakt">
+    </div>
+
+    <!-- PRAVÝ STĹPEC – FORMULÁR -->
+    <div class="contact-form">
+
+        <!-- TU SI NESKÔR VLOŽÍŠ FORMULÁR -->
+        <div class="contact-container">
+    <form action="https://formspree.io/f/maqqyowg" method="POST" class="dark-form">
+        <h2 class="form-title">Contact us</h2>
+
+        <div class="form-group">
+            <label>Name and Surname</label>
+            <input type="text" name="meno" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+            <label>Your E-mail</label>
+            <input type="email" name="email" placeholder="name@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label>Chose services</label>
+            <select name="balik">
+                <option value="enfotoprodukcia">Photography</option>
+                <option value="enfotoprehliadka">Photography tour</option>
+                <option value="envirtualna prehliadka">360° Virtual tour</option>
+                <option value="enzakladna produkcia">Basic production</option>
+                <option value="enrozsirena produkcia">Extended production</option>
+                <option value="enkompletna produkcia">Complete production</option>
+                <option value="enprojekt">Project</option>
+                <option value="endoplnok">Video add-ons</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Details (location, date, your social media profile / web)</label>
+            <textarea name="message" rows="4" placeholder="Write to us for more information..."></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" class="submit-btn">Send</button>
+    </form>
+</div>
+    </div>
+
+</section>
 <footer class="site-footer">
     <div class="footer-inner">
 
