@@ -943,3 +943,32 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
+/* --- OPRAVA PRE IOS (iPod, iPhone, Safari/Chrome na iOS) --- */
+
+@supports (-webkit-touch-callout: none) {
+    /* Selektory tvojich problémových pozadí */
+    .body-projects, 
+    .body-home, 
+    .body-spejs, 
+    .body-services, 
+    .body-contact {
+        /* Vypneme problematický fixed attachment */
+        background-attachment: scroll !important;
+        
+        /* Zabezpečíme, aby sa obrázok správne prispôsobil výške okna na iPode */
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+    /* Doplnková oprava pre plynulosť skrolovania na iOS */
+    html, body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Staršie zariadenia bez podpory @supports môžu použiť toto */
+@media (pointer: coarse) {
+    .body-projects, .body-home, .body-spejs, .body-services, .body-contact {
+        background-attachment: scroll !important;
+    }
+}
