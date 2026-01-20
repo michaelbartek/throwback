@@ -951,5 +951,6 @@ body {
     .body-services,
     .body-contact {
         background-attachment: scroll;
+        min-height: 100vh;
     }
 }
