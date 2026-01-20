@@ -949,11 +949,3 @@ body {
     background-attachment: fixed;
     min-height: 100vh;
 }
-@media (max-width: 1024px) {
-    .body-home, .body-projects, .body-spejs, .body-services, .body-contact {
-        background-attachment: scroll !important;
-        /* Skús 150% alebo 'auto 100%' - to zmenší priblíženie */
-        background-size: auto 100%; 
-        background-position: center center;
-    }
-}
