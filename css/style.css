@@ -943,3 +943,12 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
+@media (max-width: 1024px) {
+    .body-projects,
+    .body-home,
+    .body-spejs,
+    .body-services,
+    .body-contact {
+        background-attachment: scroll;
+    }
+}
