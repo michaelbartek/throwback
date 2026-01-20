@@ -271,7 +271,8 @@ html, body {
     text-decoration: underline  ;
     text-decoration-color: #662D91;
     max-width: 800px;
-    padding: 0 20px;
+    white-space: nowrap;
+
 }
 
 .hero-content h1 {
