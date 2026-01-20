@@ -948,14 +948,13 @@ body {
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
-}
+}/* Riešenie pre mobily */
 @media (max-width: 1024px) {
-    .body-projects,
-    .body-home,
-    .body-spejs,
-    .body-services,
-    .body-contact {
-        background-attachment: scroll;
-        background-position: center top;
+    .body-home, .body-projects, .body-spejs, .body-services, .body-contact {
+        background-attachment: scroll !important;
+        /* Dôležité: center center zabezpečí, že lampa a gauč budú v strede */
+        background-position: center center; 
+        /* Fix pre iOS, aby sa pozadie neťahalo */
+        background-size: cover;
     }
 }
