@@ -943,14 +943,3 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
-@media (max-width: 768px) {
-    .body-contact,
-    .body-services,
-    .body-spejs,
-    .body-home,
-    .body-projects {
-        background-size: contain;
-        background-position: center top;
-    }
-}
-
