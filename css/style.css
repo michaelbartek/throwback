@@ -915,6 +915,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    min-height: 100vh;
 }
 .body-home {
     background-image: url("../images/hero.jpg");
@@ -922,6 +923,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    min-height: 100vh;
 }
 .body-spejs {
     background-image: url("../images/texture1.jpg");
@@ -929,6 +931,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    min-height: 100vh;
 }
 .body-services {
     background-image: url("../images/services-bg.jpg");
@@ -936,6 +939,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    min-height: 100vh;
 }
 .body-contact {
     background-image: url("../images/texture6.jpg");
@@ -943,6 +947,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    min-height: 100vh;
 }
 @media (max-width: 1024px) {
     .body-projects,
@@ -951,6 +956,6 @@ body {
     .body-services,
     .body-contact {
         background-attachment: scroll;
-        min-height: 100vh;
+        background-position: center top;
     }
 }
