@@ -962,7 +962,7 @@ body {
     .body-services::before { background-image: url("../images/services-bg.jpg"); }
     .body-contact::before { background-image: url("../images/texture6.jpg"); }
 }
-#cookie-banner {
+.cookie-banner {
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -971,24 +971,20 @@ body {
   color: #111;
   padding: 16px 18px;
   font-size: 14px;
-  line-height: 1.4;
   border-radius: 6px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   display: none;
   z-index: 9999;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, sans-serif;
 }
-
-#cookie-banner span {
+.cookie-banner span {
   display: block;
   margin-bottom: 12px;
 }
-
 .cookie-actions {
   display: flex;
   gap: 10px;
 }
-
 .cookie-actions button {
   background: none;
   border: 1px solid #ddd;
@@ -996,19 +992,12 @@ body {
   font-size: 13px;
   cursor: pointer;
   border-radius: 4px;
-  transition: all .2s ease;
+  transition: .2s ease;
 }
-
-#cookie-accept {
-  border-color: #111;
-}
-
 #cookie-accept:hover {
   background: #111;
   color: #fff;
 }
-
 #cookie-decline:hover {
   background: #f3f3f3;
 }
-
