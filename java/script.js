@@ -16,7 +16,7 @@ function nextSlide() {
 setInterval(nextSlide, 2000);
 function loadGoogleAnalytics() {
   var s = document.createElement('script');
-  s.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-7W8D30NSH8";
   s.async = true;
   document.head.appendChild(s);
 
