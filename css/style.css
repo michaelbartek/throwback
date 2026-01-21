@@ -949,9 +949,3 @@ body {
     background-attachment: fixed;
     min-height: 100vh;
 }
-/* OPRAVA PRE IOS/MOBILY */
-@media (max-width: 1024px) {
-    .body-projects, .body-home, .body-spejs, .body-services, .body-contact {
-        background-attachment: scroll; /* Vypne problematické fixovanie */
-    }
-}
