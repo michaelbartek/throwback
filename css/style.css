@@ -1021,4 +1021,11 @@ body {
   background: rgba(255,255,255,0.08);
   transform: translateY(-1px);
 }
-
+.cookies-href {
+    text-decpration:none;
+    color: #fff;
+}
+.cookies-href:hover {
+    text-decpration:none;
+    color: #FAA440;
+}
