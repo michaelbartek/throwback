@@ -909,43 +909,56 @@ body {
         font-size: 1.5rem;
     }
 }
-.body-projects {
-    background-image: url("../images/texture5.jpg");
+
+/* 1. Základný štýl (funguje na PC a Androide) */
+.body-projects, .body-home, .body-spejs, .body-services, .body-contact {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
+    position: relative;
 }
-.body-home {
-    background-image: url("../images/hero.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
-.body-spejs {
-    background-image: url("../images/texture1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
-.body-services {
-    background-image: url("../images/services-bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
-.body-contact {
-    background-image: url("../images/texture6.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
+
+/* Priradenie obrázkov */
+.body-home { background-image: url("../images/hero.jpg"); }
+.body-projects { background-image: url("../images/texture5.jpg"); }
+.body-spejs { background-image: url("../images/texture1.jpg"); }
+.body-services { background-image: url("../images/services-bg.jpg"); }
+.body-contact { background-image: url("../images/texture6.jpg"); }
+
+/* 2. Cielená oprava výhradne pre iOS (Safari) */
+/* Tento dotaz zistí, či zariadenie nepodporuje hover (väčšina mobilov) 
+   a či má Apple-style scrollovanie */
+@supports (-webkit-touch-callout: none) {
+    
+    .body-projects, .body-home, .body-spejs, .body-services, .body-contact {
+        background-attachment: scroll !important;
+        background-image: none !important; /* Vypneme pôvodné pozadie */
+    }
+
+    /* Vytvoríme fixnú vrstvu len pre iOS */
+    .body-projects::before, 
+    .body-home::before, 
+    .body-spejs::before, 
+    .body-services::before, 
+    .body-contact::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Priradíme obrázky späť do pseudoelementov len pre iOS */
+    .body-home::before { background-image: url("../images/hero.jpg"); }
+    .body-projects::before { background-image: url("../images/texture5.jpg"); }
+    .body-spejs::before { background-image: url("../images/texture1.jpg"); }
+    .body-services::before { background-image: url("../images/services-bg.jpg"); }
+    .body-contact::before { background-image: url("../images/texture6.jpg"); }
 }
