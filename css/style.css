@@ -966,9 +966,8 @@ body {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  max-width: 520px;
-  width: calc(100% - 40px);
-  background: #111;                 /* tmavé pozadie */
+  max-width: 300px;
+  width: calc(100% - 40px);               /* tmavé pozadie */
   color: #fff;                      /* biely text */
   padding: 18px 20px;
   font-size: 15px;
@@ -986,7 +985,6 @@ body {
 }
 
 .cookie-actions {
-  display: flex;
   gap: 12px;
   justify-content: flex-end;        /* zarovnanie doprava */
 }
