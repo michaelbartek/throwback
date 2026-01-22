@@ -999,8 +999,9 @@ body {
 }
 
 #cookie-accept {
-  background: #fff;
-  color: #111;
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 #cookie-decline {
@@ -1010,13 +1011,11 @@ body {
 }
 
 #cookie-accept:hover {
-  background: #fff;
-  transform: translateY(-1px);
+  background: rgba(255,255,255,0.08);
 }
 
 #cookie-decline:hover {
   background: rgba(255,255,255,0.08);
-  transform: translateY(-1px);
 }
 .cookies-href {
     text-decoration:none;
@@ -1025,9 +1024,4 @@ body {
 .cookies-href:hover {
     text-decoration:none;
     color: #FAA440;
-}
-/* povolenie kurzoru v bannery */
-.cookie-banner,
-.cookie-banner * {
-  cursor: auto;
 }
