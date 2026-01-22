@@ -1026,3 +1026,8 @@ body {
     text-decoration:none;
     color: #FAA440;
 }
+/* povolenie kurzoru v bannery */
+.cookie-banner,
+.cookie-banner * {
+  cursor: auto;
+}
