@@ -81,7 +81,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
     padding: 6px 12px;
-    cursor: pointer;
     font-size: 14px;
     border-radius: 6px;
     opacity: 0.7;
@@ -197,7 +196,6 @@ html, body {
     display: none;
     font-size: 28px;
     color: white;
-    cursor: pointer;
 }/* 1. Predvolene skryť tento odkaz (pre PC/Desktop) */
 .mobile-only {
     display: none;
@@ -995,7 +993,6 @@ body {
   border: 1px solid rgba(255,255,255,0.15);
   padding: 10px 14px;
   font-size: 13px;
-  cursor: pointer;
   border-radius: 12px;
   transition: .2s ease;
   font-weight: 600;
