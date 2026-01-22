@@ -50,4 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
     banner.style.display = "none";
   });
 });
-
+window.addEventListener('scroll', function() {
+    const scrollThreshold = 600; // Počet pixelov, kedy má byť stmavenie na 50%
+    const currentScroll = window.pageYOffset;
+    
+    // Výpočet opacity: (scroll / prah) * 0.5
+    // Math.min zabezpečí, že to nepresiahne 0.5
+    let opacity = Math.min((currentScroll / scrollThreshold) * 0.8, 0.8);
+    
+    // Nastavenie CSS premennej priamo na body
+    document.body.style.setProperty('--bg-overlay', opacity);
+});
