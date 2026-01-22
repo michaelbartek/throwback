@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://throwback.sk/sitemap.xml
