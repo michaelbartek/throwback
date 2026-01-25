@@ -618,6 +618,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
+    display: block !important; /* Zabezpečí, že JS vám to neschová */
 }
 
 /* crossfade animácia pre všetky 3 slide-y */
@@ -627,35 +628,21 @@ body {
     object-fit: cover;
     position: absolute;
     opacity: 0;
-    
-    /* Celkový cyklus: 3 obrázky * 15s = 45s */
-    animation: simple-switch 45s infinite;
+    animation: simple-switch 30s infinite;
 }
 
 @keyframes simple-switch {
-    /* Obrázok je viditeľný počas prvej tretiny (0s - 15s) */
-    /* 100% / 3 = 33.33% */
-    0%, 33.32% {
-        opacity: 1;
-        z-index: 10;
-    }
-    /* Po uplynutí tretiny času obrázok zmizne */
-    33.33%, 100% {
-        opacity: 0;
-        z-index: 0;
-    }
+    0% { opacity: 0; }
+    5% { opacity: 1; }   /* Plynulý nábeh (cca 1.5s) */
+    33.33% { opacity: 1; } /* Drží viditeľnosť do 10. sekundy */
+    38.33% { opacity: 0; } /* Plynulé zmiznutie */
+    100% { opacity: 0; }
 }
 
-/* Oneskorenia rozdelené po 15 sekundách */
-.slide:nth-child(1) img { 
-    animation-delay: 0s; 
-}
-.slide:nth-child(2) img { 
-    animation-delay: 15s; 
-}
-.slide:nth-child(3) img { 
-    animation-delay: 30s; 
-}
+/* Oneskorenia: posunuté presne o 10 sekúnd */
+.slide:nth-child(1) img { animation-delay: 0s; }
+.slide:nth-child(2) img { animation-delay: 10s; }
+.slide:nth-child(3) img { animation-delay: 20s; }
 
 .contact-spejs {
     display: grid;
