@@ -995,7 +995,17 @@ body {
 }
 
 .text-block {
-    padding: 50px 20px 50vh 20px; /* Spodný padding 50% výšky obrazovky pre pomalé scrollovanie */
+    padding: 50px 20px 37vh 20px; /* Spodný padding 50% výšky obrazovky pre pomalé scrollovanie */
+}
+.text-block-spodok {
+    padding: 50vh 20px 50vh 20px; 
+    font-size: 1.6rem;
+}
+/* Responzivita */
+@media (max-width: 768px) {
+    .text-block-spodok {
+            padding: 10vh 20px 20vh 20px;
+    }
 }
 
 .text-block h2 {
@@ -1031,6 +1041,7 @@ body {
     text-decoration: none;
 }
 
+
 /* Tlačidlá */
 .btn-main {
         display: inline-block;
@@ -1048,9 +1059,6 @@ body {
     background-color: #662D91;
 }
 
-.last-block {
-    padding-bottom: 150px; /* Posledný blok nepotrebuje 50vh */
-}
 
 /* Responzivita */
 @media (max-width: 768px) {
@@ -1074,7 +1082,7 @@ body {
    border-top: 1px solid rgba(255, 255, 255, 0.08);
      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
    border-radius: 20px;
-    margin: 120px 0;
+    margin: 0px 0;
     overflow: hidden;
 }
 
@@ -1125,6 +1133,7 @@ body {
 @media (max-width: 900px) {
     .about-split {
         grid-template-columns: 1fr;
+    margin-top: 10vh;
     }
     .about-image {
         height: 40vh;
@@ -1182,3 +1191,22 @@ body {
         height: 15px;
     }
 }
+.p-strong {
+    text-align: center;
+}
+.a-strong {
+    color: #FAA440;
+}
+.p-justify {
+    text-align: justify;
+}
+/* Responzivita */
+@media (max-width: 768px) {
+    .p-strong {
+        text-align: left;
+    }
+    
+    .p-justify {
+        text-align: left;
+    }
+    }
