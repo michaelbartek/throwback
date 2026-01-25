@@ -2,6 +2,7 @@
 
 html, body {
     cursor: none;
+    scroll-behavior: smooth;
 }
 a,
 button,
@@ -977,93 +978,75 @@ body {
     text-decoration:none;
     color: #FAA440;
 }
-/* Hlavná sekcia */
-.domov-sekcia {
-    width: 100%;
-    padding-top: 370px;
-    display: flex;
-    justify-content: center;
-    background-color: transparent;
-    padding-bottom: 200px;
-}
+/* ===== LANDING PAGE LAYOUT ===== */
 
-/* Tvoj špecifický container */
-.domov-obal {
-    max-width: 1100px;
-    width: 90%;
-    margin: 0 auto;
+.landing-content {
+    color: #ffffff;
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
 }
 
-.domov-hlavny-nadpis {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #fff;
-      text-decoration: underline  ;
-    text-decoration-color: #662D91;
+.hero-section {
+    height: 100vh; /* Zaberá celú obrazovku */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    text-decoration: none;
+    padding: 0 20px;
 }
 
-.domov-odstavec {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #fff;
-    /* Nové vlastnosti: */
-    width: 65%;           /* Šírka obmedzená na 80% */
-    margin-left: auto;    /* Centrovanie */
-    margin-right: auto;   /* Centrovanie */
-}
-
-.domov-odstavec-koniec {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #fff;
-    margin-top: 150px;
-}
-.domov-odstavec-50 {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: left;
-    margin-top: 0px;
-}
-.domov-odstavec-50-hyperlink {
+.hero-section h1 {
+    font-size: 3rem;
+    line-height: 1.1;
     color: #FAA440;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.text-block {
+    padding: 50px 20px 50vh 20px; /* Spodný padding 50% výšky obrazovky pre pomalé scrollovanie */
+}
+
+.text-block h2 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.text-block p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+}
+
+.call-to-action {
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 40px;
+}
+
+.btn-main2 {
+      font-weight: 600;
+    color: #FAA440;
+    margin-top: 40px;
     text-decoration: none;
 }
-.domov-odstavec-50-hyperlink :hover {
+.btn-main2:hover {
+      font-weight: 600;
     color: #662D91;
-}
-/* Responzívny 50/50 split */
-.domov-flex-box {
-    display: flex;
-    flex-wrap: wrap; /* Kľúčové pre responzivitu */
-    align-items: center;
-    gap: 30px;
-    margin-top: 400px;
+    margin-top: 40px;
+    text-decoration: none;
 }
 
-.domov-flex-stlpec {
-    flex: 1;
-    min-width: 300px; /* Pri šírke pod 300px sa stĺpce hodia pod seba */
-}
-
-.domov-obrazok {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Tlačidlo na stred */
-.domov-akcia {
-    margin-top: 30px;
-}
-
-
-.domov-tlacidlo-link {
-    display: inline-block;
+/* Tlačidlá */
+.btn-main {
+        display: inline-block;
     padding: 14px 36px;
     border-radius: 30px;
     background: #fff;
@@ -1074,31 +1057,141 @@ body {
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.domov-tlacidlo-link:hover {
+.btn-main:hover {
     background-color: #662D91;
-}  
+}
 
-/* Media query pre menšie písmo na mobiloch */
-@media (max-width: 600px) {
-    .domov-hlavny-nadpis {
-        font-size: 1.8rem;
-    }
-    .domov-sekcia { 
-        padding-top: 270px;
-    }
-    .domov-odstavec {
-        margin-top: 350px;
-        text-align: left;
-        width: 100%;      /* Na mobile plná šírka */
-    }
-    .domov-flex-box {
-        margin-top: 210px;
+.last-block {
+    padding-bottom: 150px; /* Posledný blok nepotrebuje 50vh */
+}
 
+/* Responzivita */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
     }
-    .domov-odstavec-koniec {
-        margin-top: 0px;
-    }
-    .domov-odstavec-50{
+    .text-block {
+        padding-bottom: 30px;
         text-align: left;
+    }
+}
+
+/* ===== O NÁS SPLIT SEKCOA ===== */
+.about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+    background: #30303010;
+     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+   border-top: 1px solid rgba(255, 255, 255, 0.08);
+     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+   border-radius: 20px;
+    margin: 120px 0;
+    overflow: hidden;
+}
+
+.about-image {
+    position: relative;
+    height: 100%;
+    /* Tieto tri riadky vycentrujú obrázok v jeho polovici */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Voliteľné: zabezpečí, aby sa obrázok nedotýkal okrajov ani na malých displejoch */
+}
+
+.about-image img {
+    width: 80%;      /* Obrázok zaberie 80% šírky kontajnera */
+    height: auto;    /* Výška sa prispôsobí pomeru strán, aby sa nedeformoval */
+    max-height: 80%; /* Zabezpečí, aby nebol príliš vysoký */
+    object-fit: cover;
+    border-radius: 4px; /* Voliteľné: jemne zaoblené rohy k tomu sedia */
+    /* TENTO RIADOK ZABEZPEČÍ ZJEMNENIE: */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.about-image img:hover {
+    transform: scale(1.05); /* 1.05 znamená zväčšenie o 5 % */
+}
+.about-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 8%;
+    
+}
+
+
+.content-padding p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.btn-wrapper {
+    margin-top: 40px;
+    text-align: left;
+}
+
+/* Mobilná verzia */
+@media (max-width: 900px) {
+    .about-split {
+        grid-template-columns: 1fr;
+    }
+    .about-image {
+        height: 40vh;
+    }
+    .about-text {
+        padding: 0px 20px;
+    }
+}
+/* Kontajner pre zaostrený rám */
+.focus-frame {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    transition: transform 0.3s ease;
+}
+
+/* Štýl pre rohy hľadáčika */
+.frame-corner {
+    position: absolute;
+     pointer-events: none;
+     width: 40px;
+    height: 40px;
+    border: 2px solid #FAA440;
+    opacity: 0.6;
+}
+
+/* Umiestnenie rohov */
+.top-l { top: 0; left: 0; border-right: none; border-bottom: none; }
+.bottom-r { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+/* Jemný efekt: rohy sa pri scrollovaní môžu mierne rozostúpiť */
+.focus-content h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #662D91;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responzivita */
+@media (max-width: 768px) {
+    .focus-frame {
+        padding: 40px 20px;
+        margin: 0 10px;
+    }
+    
+    .focus-content h1 {
+        font-size: 2rem;
+    }
+    .frame-corner {
+        width: 15px;
+        height: 15px;
     }
 }
