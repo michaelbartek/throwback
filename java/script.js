@@ -1,20 +1,3 @@
-let currentSlide = 0;
-
-function showSlide(index) {
-	const slides = document.querySelectorAll('.slide');
-
-	slides.forEach((slide, i) => {
-		slide.style.display = i === index ? 'flex' : 'none';
-	});
-}
-
-function nextSlide() {
-	currentSlide = (currentSlide + 1) % 6;
-	showSlide(currentSlide);
-}
-
-setInterval(nextSlide, 2000);
-
 function loadGoogleAnalytics() {
   var s = document.createElement('script');
   s.src = "https://www.googletagmanager.com/gtag/js?id=G-7W8D30NSH8";
