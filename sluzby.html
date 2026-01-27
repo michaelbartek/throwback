@@ -70,7 +70,7 @@
     <div class="table-grid">
 
         <!-- Karta 1 -->
-        <div class="table-card">
+        <div class="table-card service-link" data-service="fotoprodukcia">
             <div class="table-header">
                 <h3>Fotoprodukcia</h3>
                 
@@ -85,7 +85,7 @@
         </div>
 
         <!-- Karta 2 -->
-        <div class="table-card">
+        <div class="table-card service-link" data-service="fotoprehliadka">
             <div class="table-header">
                 <h3>Fotografická prehliadka</h3>
             </div>
@@ -100,7 +100,7 @@
         </div>
 
         <!-- Karta 3 -->
-        <div class="table-card">
+        <div class="table-card service-link" data-service="virtualna prehliadka">
             <div class="table-header">
                 <h3>360° Virtuálna priehliadka</h3>
             </div>
@@ -117,7 +117,7 @@
         </div>
 
         <!-- Karta 4 -->
-        <div class="table-card highlight">
+        <div class="table-card highlight service-link" data-service="projekt">
             <div class="table-header-silver">
                 <h3>Projektový balík</h3>
             </div>
@@ -139,7 +139,7 @@
     <div class="table-grid">
 
         <!-- Karta 1 -->
-        <div class="table-card">
+        <div class="table-card service-link" data-service="zakladna produkcia">
             <div class="table-header-purple">
                 <h3>Základná produkcia</h3>
             </div>
@@ -154,7 +154,7 @@
         </div>
 
         <!-- Karta 2 -->
-        <div class="table-card">
+        <div class="table-card service-link" data-service="rozsirena produkcia">
             <div class="table-header-purple">
                 <h3>Rozšírená produkcia</h3>
             </div>
@@ -172,7 +172,7 @@
         </div>
 
         <!-- Karta 3 -->
-        <div class="table-card">
+        <div class="table-card service-link" data-service="kompletna produkcia">
             <div class="table-header-purple">
                 <h3>Kompletná produkcia</h3>
             </div>
@@ -190,7 +190,7 @@
         </div>
 
         <!-- Karta 4 -->
-        <div class="table-card highlight">
+        <div class="table-card highlight service-link" data-service="doplnok">
             <div class="table-header-dark">
                 <h3>Video doplnky</h3>
             </div>
@@ -207,7 +207,7 @@
 
     </section>
 </section>
-<div class="contact-container">
+<div class="contact-container" id="contact-form">
     <form action="https://formspree.io/f/maqqyowg" method="POST" class="dark-form">
         <h2 class="form-title">Kontaktujte nás</h2>
 
@@ -241,7 +241,13 @@
         </div>
 
         <input type="text" name="_gotcha" style="display:none">
-
+<div class="form-group checkbox-group">
+    
+    <label for="suhlas">
+        Odoslaním súhlasím so 
+        <a href="podmienky.pdf" target="_blank" class="cookies-href">všeobecnými obchodnými podmienkami</a>.
+    </label>
+</div>
         <button type="submit" class="submit-btn">Odoslať požiadavku</button>
     </form>
 </div>
