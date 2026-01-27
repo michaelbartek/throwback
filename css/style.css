@@ -344,6 +344,21 @@ body {
     flex-direction: column;
 }
 
+/* Efekt pre karty služieb po nabehnutí */
+.table-card.service-link {
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table-card.service-link:hover {
+    transform: translateY(-5px) scale(1.02); /* Jemné nadvihnutie a zväčšenie */
+    filter: brightness(1.1); /* Mierne rozjasnenie */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Silnejší tieň */
+}
+
+/* Zabezpečí, aby kurzor zostal skrytý (tvoj vlastný kurzor ho nahradí) */
+.service-link {
+    cursor: none;
+}
 
 /* HORNY PAS (NAZOV + SUMA) */
 .table-header {
@@ -598,7 +613,6 @@ body {
         height: 40vh;
     }
 }
-
 .slider-container {
     width: 100%;
     aspect-ratio: 21 / 4.8;
