@@ -44,3 +44,30 @@ window.addEventListener('scroll', function() {
     // Nastavenie CSS premennej priamo na body
     document.body.style.setProperty('--bg-overlay', opacity);
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.table-card.service-link');
+    const selectMenu = document.querySelector('select[name="balik"]');
+    const contactSection = document.getElementById('contact-form');
+    const header = document.querySelector('.site-header'); // Tvoje fixné menu
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const service = this.getAttribute('data-service');
+
+            if (selectMenu) {
+                selectMenu.value = service;
+            }
+
+            if (contactSection) {
+                // Výpočet pozície: pozícia formulára - výška menu - extra rezerva (napr. 20px)
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
