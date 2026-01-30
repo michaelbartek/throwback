@@ -887,7 +887,7 @@ body {
 
     /* Priradíme obrázky späť do pseudoelementov len pre iOS */
     .body-home::before { background-image: url("../images/hero.jpg"); }
-    .body-projects::before { background-image: url("../images/texture5.jpg"); }
+    .body-projects::before { background-image: url("../images/hero.jpg"); }
     .body-spejs::before { background-image: url("../images/texture1.jpg"); }
     .body-services::before { background-image: url("../images/services-bg.jpg"); }
     .body-contact::before { background-image: url("../images/texture6.jpg"); }
