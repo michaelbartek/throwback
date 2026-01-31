@@ -704,7 +704,6 @@ body {
 }
 .icon-row {
     display: flex;
-    background-color: white;
     gap: 25%;
     padding-top: 25px;
     padding-bottom: 25px;
