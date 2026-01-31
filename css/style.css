@@ -709,6 +709,8 @@ body {
     padding-bottom: 25px;
     align-items: center;
     justify-content: center; /* centrovanie vodorovne */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 
