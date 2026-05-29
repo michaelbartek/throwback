@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>CHCEŠ POCHILLOVAŤ VONKU?</title>
    <style>
         /* Reset a základné nastavenie pre Full HD bez scrollovania */
@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Odstráni otravný modrý záblesk pri klikaní na mobile */
         }
 
         body, html {
@@ -17,7 +18,7 @@
             height: 100%;
             overflow: hidden; /* Zakáže scrollovanie */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #8c82b6; /* Fialové pozadie z tvojho screenshotu */
+            background-color: #8c82b6; /* Fialové pozadie */
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -40,7 +41,7 @@
             text-shadow: 0px 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Flexbox pre dokonalé vycentrovanie tlačidiel vedľa seba */
+        /* Flexbox pre tlačidlá */
         .buttons-wrapper {
             display: flex;
             justify-content: center;
@@ -48,7 +49,7 @@
             gap: 40px; /* Medzera medzi tlačidlami */
             position: relative;
             width: 100%;
-            height: 80px; /* Fixná výška obalu, aby stránka neskakala */
+            height: 80px; 
         }
 
         /* Spoločný štýl pre tlačidlá */
@@ -67,9 +68,10 @@
             align-items: center;
             justify-content: center;
             min-width: 140px;
+            user-select: none; /* Zabráni označovaniu textu pri rýchlom klikaní */
         }
 
-        /* Tlačidlo ÁNO - Oranžovo/žlté z tvojho screenshotu */
+        /* Tlačidlo ÁNO */
         .btn-yes {
             background-color: #f3a657; 
             color: white;
@@ -80,20 +82,44 @@
             transform: scale(1.05);
         }
 
-        /* Tlačidlo NIE - Bordovo/červené */
+        /* Tlačidlo NIE */
         .btn-no {
             background-color: #a63e3e; 
             color: white;
-            /* Premenné pre hladší JS prechod (voliteľné) */
             transition: transform 0.2s ease, background-color 0.2s ease, left 0.1s ease, top 0.1s ease;
         }
-        /* Štýl pre tvoj malý obrázok nad nadpisom */
+
+        /* Štýl pre malý obrázok nad nadpisom */
         .top-image {
-            max-width: 150px; /* Maximálna šírka obrázka (uprav podľa potreby) */
+            max-width: 150px; 
             height: auto;
-            margin-bottom: 20px; /* Medzera medzi obrázkom a nadpisom */
-            border-radius: 12px; /* Jemné zaoblenie rohov obrázka */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Jemný tieň */
+            margin-bottom: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+        }
+
+        /* RESPONZIVITA PRE MOBILY (Displeje menšie ako 600px) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem; /* Zmenšíme písmo, aby sa nadpis na mobile zmestil */
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+
+            .buttons-wrapper {
+                gap: 20px; /* Zmenšíme medzeru, aby gombíky neboli nalepené na okrajoch */
+            }
+
+            .btn {
+                font-size: 1.2rem; /* Jemne menšie gombíky pre lepšiu manipuláciu */
+                padding: 12px 30px;
+                min-width: 110px;
+            }
+
+            .top-image {
+                max-width: 110px; /* Menší obrázok, nech to na mobile pekne ukáže */
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
@@ -110,31 +136,37 @@
             <button class="btn btn-no" id="noBtn">NIE👎</button>
         </div>
     </div>
-<script>
+
+    <script>
         const noBtn = document.getElementById('noBtn');
 
-        // Funkcia, ktorá posunie tlačidlo na náhodnú pozíciu na obrazovke
         function moveButton() {
-            // Zistíme rozmery okna mínus veľkosť tlačidla, aby neodskočilo mimo obrazovku
-            const maxX = window.innerWidth - noBtn.offsetWidth;
-            const maxY = window.innerHeight - noBtn.offsetHeight;
+            // Odsadenie (padding) od krajov obrazovky, aby gombík neskočil pod zárez displeja alebo úplne na okraj
+            const padding = 20; 
+            
+            // Výpočet maximálnej možnej pozície s ohľadom na bezpečnú zónu
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-            // Vygenerujeme náhodné súradnice
-            const randomX = Math.floor(Math.random() * maxX);
-            const randomY = Math.floor(Math.random() * maxY);
+            // Vygenerovanie náhodnej pozície (od bezpečného okraja po maximálny limit)
+            let randomX = Math.floor(Math.random() * (maxX - padding)) + padding;
+            let randomY = Math.floor(Math.random() * (maxY - padding)) + padding;
 
-            // Zmeníme pozíciu tlačidla na fixnú/absolútnu voči celej stránke
+            // Kontrola: Ak by vygenerované súradnice boli príliš blízko 0 (mimo zorného uhla), posunieme ich do bezpečia
+            if (randomX < padding) randomX = padding;
+            if (randomY < padding) randomY = padding;
+
             noBtn.style.position = 'fixed';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
         }
 
-        // Aktivuje sa hneď, ako myš vstúpi na plochu tlačidla
+        // Aktivuje sa na PC pri priblížení myšou
         noBtn.addEventListener('mouseenter', moveButton);
         
-        // Pre istotu aj pre dotykové zariadenia, ak by niekto klikol
+        // Na mobile: Okamžite pri prvom dotyku (ešte pred kliknutím) tlačidlo odskočí
         noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // Zabráni predvolenému kliknutiu
+            e.preventDefault(); // Zruší štandardné kliknutie a focus
             moveButton();
         });
     </script>

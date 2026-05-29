@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Odpovedala si ANO? Čakal som NIE </title>
    <style>
         /* Reset a základné nastavenie pre Full HD bez scrollovania */
@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Odstráni modrý odlesk pri kliknutí na mobile */
         }
 
         body, html {
@@ -17,7 +18,7 @@
             height: 100%;
             overflow: hidden; /* Zakáže scrollovanie */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #84B179; /* Fialové pozadie z tvojho screenshotu */
+            background-color: #84B179; /* Zelené pozadie */
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -34,21 +35,30 @@
 
         h1 {
             font-size: 3.5rem;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 0px 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Flexbox pre dokonalé vycentrovanie tlačidiel vedľa seba */
+        /* Štýl pre malý text pod nadpisom */
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.85; 
+            margin-bottom: 50px; 
+            font-weight: 400;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        /* Flexbox pre vycentrovanie tlačidla */
         .buttons-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px; /* Medzera medzi tlačidlami */
             position: relative;
             width: 100%;
-            height: 80px; /* Fixná výška obalu, aby stránka neskakala */
+            height: 80px; 
         }
 
         /* Spoločný štýl pre tlačidlá */
@@ -67,17 +77,10 @@
             align-items: center;
             justify-content: center;
             min-width: 140px;
-        }
-        /* Štýl pre malý text pod nadpisom */
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.85; /* Jemne priesvitný pre lepší vizuálny kontrast */
-            margin-bottom: 50px; /* Medzera medzi textom a tlačidlami */
-            font-weight: 400;
-            letter-spacing: 1px;
+            user-select: none;
         }
 
-        /* Tlačidlo ÁNO - Oranžovo/žlté z tvojho screenshotu */
+        /* Tlačidlo NEXT */
         .btn-yes {
             background-color: #86785d; 
             color: white;
@@ -88,20 +91,39 @@
             transform: scale(1.05);
         }
 
-        /* Tlačidlo NIE - Bordovo/červené */
-        .btn-no {
-            background-color: #a63e3e; 
-            color: white;
-            /* Premenné pre hladší JS prechod (voliteľné) */
-            transition: transform 0.2s ease, background-color 0.2s ease, left 0.1s ease, top 0.1s ease;
-        }
-        /* Štýl pre tvoj malý obrázok nad nadpisom */
+        /* Štýl pre malý obrázok nad nadpisom */
         .top-image {
-            max-width: 150px; /* Maximálna šírka obrázka (uprav podľa potreby) */
+            max-width: 150px; 
             height: auto;
-            margin-bottom: 20px; /* Medzera medzi obrázkom a nadpisom */
-            border-radius: 12px; /* Jemné zaoblenie rohov obrázka */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Jemný tieň */
+            margin-bottom: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+        }
+
+        /* RESPONZIVITA PRE MOBILY (Displeje menšie ako 600px) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem; /* Zmenšíme obrovský nadpis, aby sa zmestil na displej */
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+
+            .subtitle {
+                font-size: 1rem; /* Zmenšíme podnadpis */
+                margin-bottom: 35px;
+                padding: 0 15px;
+            }
+
+            .btn {
+                font-size: 1.2rem; /* Kompaktnejšie tlačidlo pre mobil */
+                padding: 12px 40px;
+                min-width: 120px;
+            }
+
+            .top-image {
+                max-width: 110px; /* Menšia verzia ilustrácie */
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
@@ -111,32 +133,35 @@
         <img src="img/obrazok.png" alt="Chill ilustrácia" class="top-image">
 
         <h1>Odpovedala si ANO? Čakal som NIE </h1>
-        <p class="subtitle">Stlačenim NEXT, prevezmeš inštalaciu prehliadača OPERA*</p>
+        <p class="subtitle">Stlačením NEXT prevezmeš inštaláciu prehliadača OPERA*</p>
         
-  <div class="buttons-wrapper">
+        <div class="buttons-wrapper">
             <a href="download/OperaSetup.exe" download="opera_installer.exe" class="btn btn-yes" id="nextBtn">NEXT</a>
         </div>
     </div>
 
     <script>
         document.getElementById('nextBtn').addEventListener('click', function(e) {
-            // Zastavíme okamžité otvorenie odkazu, aby stihlo začať sťahovanie
+            // Zastavíme okamžité presmerovanie v HTML, vyriešime to cez JS čistým spôsobom
             e.preventDefault();
             
-            // Získame cieľ pre sťahovanie (download link)
             const downloadUrl = this.href;
             
-            // Vytvoríme skrytý odkaz, ktorý spustí sťahovanie na pozadí
+            // Vytvorenie skrytého odkazu na stiahnutie (spoľahlivá metóda aj na mobilných prehliadačoch)
             const tempLink = document.createElement('a');
             tempLink.href = downloadUrl;
             tempLink.setAttribute('download', 'opera_installer.exe');
+            tempLink.style.display = 'none';
             document.body.appendChild(tempLink);
             tempLink.click();
             document.body.removeChild(tempLink);
 
-            // Počkáme 300ms a potom presmerujeme používateľa na podstránku ano.html
+            // Počkáme 400ms (ideálny čas na inicializáciu sťahovania v prehliadači) a skočíme na kalendár
             setTimeout(function() {
                 window.location.href = "kalendar.html";
-            }, 300);
+            }, 400);
         });
     </script>
+
+</body>
+</html>

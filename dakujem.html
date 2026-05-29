@@ -2,21 +2,23 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ďakujem!</title>
     <style>
+        /* Reset a základné nastavenie pre Full HD bez scrollovania */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Odstráni modrý odlesk pri kliknutí na mobile */
         }
 
         body, html {
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            overflow: hidden; /* Zakáže scrollovanie */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #213C51;
+            background-color: #213C51; /* Modro-šedé pozadie */
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -24,6 +26,7 @@
             transition: background-color 0.5s ease;
         }
 
+        /* Hlavný kontajner vycentrovaný na stred */
         .container {
             text-align: center;
             padding: 20px;
@@ -50,6 +53,7 @@
             margin-right: auto;
         }
 
+        /* Spoločný štýl pre tlačidlá */
         .btn {
             font-size: 1.5rem;
             padding: 15px 45px;
@@ -64,6 +68,7 @@
             align-items: center;
             justify-content: center;
             min-width: 140px;
+            user-select: none;
         }
 
         .btn-finish {
@@ -84,7 +89,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
         }
 
-        /* Čierna obrazovka pre lokálne video */
+        /* Čierna obrazovka pre lokálne video na celú plochu */
         .video-screen {
             display: none;
             position: fixed;
@@ -99,13 +104,39 @@
         .video-screen video {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Video sa pekne prispôsobí obrazovke bez orezania */
+            object-fit: contain; /* Video sa prispôsobí displeju bez orezania */
+        }
+
+        /* RESPONZIVITA PRE MOBILY (Displeje menšie ako 600px) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem; /* Zmenšenie obrovského nadpisu pre mobil */
+                margin-bottom: 15px;
+                padding: 0 10px;
+            }
+
+            .subtitle {
+                font-size: 1rem; /* Zmenšenie popisu */
+                margin-bottom: 35px;
+                padding: 0 15px;
+                line-height: 1.5;
+            }
+
+            .btn {
+                font-size: 1.2rem; /* Kompaktnejšie tlačidlo pre mobil */
+                padding: 12px 40px;
+                min-width: 120px;
+            }
+
+            .top-image {
+                max-width: 110px; /* Menšia verzia obrázka */
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. KROK: Fialový web -->
     <div class="container" id="textWeb">
         <img src="img/obrazok.png" alt="Chill ilustrácia" class="top-image">
         <h1>ĎAKUJEM, VIDÍME SA NA MIESTE!✨</h1>
@@ -117,7 +148,6 @@
         </div>
     </div>
 
-    <!-- 2. KROK: Nový web s čistým lokálnym videom bez reklám a bez YouTube -->
     <div class="video-screen" id="videoWeb">
         <video id="localPlayer" src="video.mp4" playsinline></video>
     </div>
@@ -132,9 +162,10 @@
             
             const player = document.getElementById('localPlayer');
             
-            // Spustíme lokálne stiahnuté video
+            // Spustíme lokálne video
             player.play().catch(function(error) {
-                // Ak by náhodou prehliadač blokoval zvuk, pridáme ovládacie prvky, aby si ho mohla spustiť ručne
+                // Pokiaľ mobilný prehliadač z bezpečnostných dôvodov zablokuje automatické spustenie so zvukom,
+                // aktivujeme viditeľné ovládacie prvky (play/pause, zvuk), aby si ho používateľ mohol pustiť manuálne.
                 player.controls = true;
                 console.log("Autoplay zablokovaný, pridané controls: ", error);
             });

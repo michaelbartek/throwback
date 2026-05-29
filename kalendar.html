@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TAKŽE, KEDY A ČO?</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Odstráni modrý odlesk pri kliknutí na mobile */
         }
 
         body, html {
@@ -20,7 +21,7 @@
             height: 100%;
             overflow: hidden; /* Zakáže scrollovanie */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #AF3E3E; /* Fialové pozadie */
+            background-color: #AF3E3E; /* Červeno-bordové pozadie */
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -73,7 +74,7 @@
             background-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* grid/wrapper pre výber zábavy */
+        /* Grid pre výber zábavy */
         .activity-options {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -103,6 +104,7 @@
             align-items: center;
             justify-content: center;
             text-transform: uppercase;
+            user-select: none;
         }
 
         .activity-card:hover {
@@ -115,6 +117,7 @@
             background-color: #7C444F;
             border-color: #ffffff;
             transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(124, 68, 79, 0.4);
         }
 
         .btn {
@@ -133,6 +136,7 @@
             justify-content: center;
             min-width: 140px;
             margin-top: 10px;
+            user-select: none;
         }
 
         .btn-submit {
@@ -181,15 +185,56 @@
             border-color: #ffffff !important;
         }
         .flatpickr-day.selected, .flatpickr-day.selected:hover {
-            background: #7C444F !important;
-            border-color: #7C444F !important;
-            color: white !important;
+            background: #ffffff !important;
+            border-color: #ffffff !important;
+            color: #7C444F !important;
         }
         .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover {
             color: rgba(255, 255, 255, 0.25) !important;
         }
         .flatpickr-prev-month:hover svg, .flatpickr-next-month:hover svg {
-            fill: #7C444F !important;
+            fill: #ffffff !important;
+        }
+
+        /* RESPONZIVITA PRE MOBILY (Displeje menšie ako 600px) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem; /* Prispôsobenie nadpisu displeju mobilu */
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+
+            .date-form {
+                gap: 15px; /* Menšie rozostupy */
+            }
+
+            .date-input {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                width: 240px;
+            }
+
+            .activity-options {
+                grid-template-columns: 1fr; /* Na mobile preusporiadame karty pod seba, aby sa pohodlne klikalo */
+                gap: 10px;
+                max-width: 280px;
+            }
+
+            .activity-card {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+
+            .btn {
+                font-size: 1.2rem;
+                padding: 12px 40px;
+                min-width: 120px;
+            }
+
+            .top-image {
+                max-width: 110px;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -202,7 +247,7 @@
         
         <form id="dateForm" class="date-form">
             
-            <input type="text" name="vybrany_datum" class="date-input" placeholder="Klikni a vyber dátum" required id="datePicker">
+            <input type="text" name="vybrany_datum" class="date-input" placeholder="Klikni a vyber dátum" required id="datePicker" onfocus="this.blur();">
             
             <div class="activity-options">
                 <label>
@@ -239,22 +284,20 @@
             locale: "sk",          
             dateFormat: "d. m. Y", 
             minDate: "today",      
-            disableMobile: "true"  
+            disableMobile: "true" // Vynúti náš upravený dizajn kalendára aj na mobile
         });
 
-        // AJAX Odosielanie, ktoré kompletne obíde bielu stránku Formspree
+        // AJAX Odosielanie
         document.getElementById("dateForm").addEventListener("submit", function(e) {
-            e.preventDefault(); // Stopneme predvolené správanie formulára
+            e.preventDefault(); 
 
             const form = e.target;
             const data = new FormData(form);
             const btn = form.querySelector(".btn-submit");
             
-            // Zmena textu na tlačidle počas odosielania
             btn.textContent = "Ukladám...";
             btn.disabled = true;
 
-            // Odoslanie tajne na pozadí
             fetch("https://formspree.io/f/mjgzzkzp", {
                 method: "POST",
                 body: data,
@@ -262,10 +305,8 @@
                     'Accept': 'application/json'
                 }
             }).then(response => {
-                // Po úspešnom odoslaní okamžitý skok na tvoju ďakovnú stránku
                 window.location.href = "https://throwback.sk/dakujem.html";
             }).catch(error => {
-                // Poistka: Ak by aj zlyhala sieť, hodí ju to na finálny web, nech rande funguje
                 window.location.href = "https://throwback.sk/dakujem.html";
             });
         });
