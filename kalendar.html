@@ -20,7 +20,7 @@
             height: 100%;
             overflow: hidden; /* Zakáže scrollovanie */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #8c82b6; /* Fialové pozadie */
+            background-color: #AF3E3E; /* Fialové pozadie */
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -51,7 +51,7 @@
             gap: 25px;
         }
 
-        /* Štýl pre vstupné pole (zobrazuje vybraný dátum) */
+        /* Štýl pre vstupné pole */
         .date-input {
             font-size: 1.5rem;
             padding: 12px 25px;
@@ -76,14 +76,13 @@
         /* grid/wrapper pre výber zábavy */
         .activity-options {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 stĺpce vedľa seba */
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             width: 100%;
             max-width: 600px;
             margin: 10px 0;
         }
 
-        /* Skryjeme natívny radio button gombík */
         .activity-options input[type="radio"] {
             display: none;
         }
@@ -111,15 +110,13 @@
             transform: translateY(-2px);
         }
 
-        /* Stav, keď je karta vybraná - zmení sa na tvoju oranžovú */
+        /* Aktivovaná karta rande */
         .activity-options input[type="radio"]:checked + .activity-card {
-            background-color: #f3a657;
+            background-color: #7C444F;
             border-color: #ffffff;
-            box-shadow: 0 6px 15px rgba(243, 166, 87, 0.4);
             transform: scale(1.03);
         }
 
-        /* Spoločný štýl pre tlačidlá */
         .btn {
             font-size: 1.5rem;
             padding: 15px 45px;
@@ -138,18 +135,16 @@
             margin-top: 10px;
         }
 
-        /* Tlačidlo Odoslať - Oranžovo/žlté */
         .btn-submit {
-            background-color: #f3a657; 
+            background-color: #7c4e57; 
             color: white;
         }
 
         .btn-submit:hover {
-            background-color: #e29546;
+            background-color: #7C444F;
             transform: scale(1.05);
         }
 
-        /* Štýl pre malý obrázok nad nadpisom */
         .top-image {
             max-width: 150px; 
             height: auto;
@@ -158,9 +153,9 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
         }
 
-        /* FLATPICKR OVERRIDES (Dizajn vyskakujúceho kalendára) */
+        /* FLATPICKR OVERRIDES */
         .flatpickr-calendar {
-            background: #5c5383 !important; 
+            background: #7C444F !important; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.4) !important;
             border: none !important;
             border-radius: 15px !important;
@@ -186,15 +181,15 @@
             border-color: #ffffff !important;
         }
         .flatpickr-day.selected, .flatpickr-day.selected:hover {
-            background: #f3a657 !important;
-            border-color: #f3a657 !important;
+            background: #7C444F !important;
+            border-color: #7C444F !important;
             color: white !important;
         }
         .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover {
             color: rgba(255, 255, 255, 0.25) !important;
         }
         .flatpickr-prev-month:hover svg, .flatpickr-next-month:hover svg {
-            fill: #f3a657 !important;
+            fill: #7C444F !important;
         }
     </style>
 </head>
@@ -203,35 +198,33 @@
    <div class="container">
         <img src="img/obrazok.png" alt="Chill ilustrácia" class="top-image">
 
-        <h1>TAKŽE, KEDY A ČO?</h1>
+        <h1>TAKŽE, KEDY A ČO?🕑</h1>
         
-          <form action="https://formspree.io/f/mjgzzkzp" method="POST" class="date-form">
+        <form id="dateForm" class="date-form">
             
             <input type="text" name="vybrany_datum" class="date-input" placeholder="Klikni a vyber dátum" required id="datePicker">
             
             <div class="activity-options">
                 <label>
                     <input type="radio" name="typ_zabavy" value="Chill doma + hry" required>
-                    <div class="activity-card">Chill doma + hry</div>
+                    <div class="activity-card">Chill doma + hry🎮</div>
                 </label>
                 
                 <label>
                     <input type="radio" name="typ_zabavy" value="Priroda / Park">
-                    <div class="activity-card">Príroda / Park</div>
+                    <div class="activity-card">Príroda / Park🌻</div>
                 </label>
                 
                 <label>
                     <input type="radio" name="typ_zabavy" value="Mesto + Milkshake">
-                    <div class="activity-card">Mesto + Milkshake</div>
+                    <div class="activity-card">Mesto + Milkshake🍦</div>
                 </label>
                 
                 <label>
                     <input type="radio" name="typ_zabavy" value="Event / Kino / Party">
-                    <div class="activity-card">Event / Kino / Párty</div>
+                    <div class="activity-card">Event / Kino / Párty🌆</div>
                 </label>
             </div>
-            
-            <input type="hidden" name="_next" value="https://throwback.sk/dakujem.html">
 
             <button type="submit" class="btn btn-submit">NEXT</button>
         </form>
@@ -241,15 +234,42 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/sk.js"></script>
 
     <script>
-        // Inicializácia Flatpickru s našimi nastaveniami
+        // Inicializácia Flatpickru
         flatpickr("#datePicker", {
             locale: "sk",          
             dateFormat: "d. m. Y", 
             minDate: "today",      
             disableMobile: "true"  
         });
+
+        // AJAX Odosielanie, ktoré kompletne obíde bielu stránku Formspree
+        document.getElementById("dateForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // Stopneme predvolené správanie formulára
+
+            const form = e.target;
+            const data = new FormData(form);
+            const btn = form.querySelector(".btn-submit");
+            
+            // Zmena textu na tlačidle počas odosielania
+            btn.textContent = "Ukladám...";
+            btn.disabled = true;
+
+            // Odoslanie tajne na pozadí
+            fetch("https://formspree.io/f/mjgzzkzp", {
+                method: "POST",
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                // Po úspešnom odoslaní okamžitý skok na tvoju ďakovnú stránku
+                window.location.href = "https://throwback.sk/dakujem.html";
+            }).catch(error => {
+                // Poistka: Ak by aj zlyhala sieť, hodí ju to na finálny web, nech rande funguje
+                window.location.href = "https://throwback.sk/dakujem.html";
+            });
+        });
     </script>
 
 </body>
 </html>
-    
