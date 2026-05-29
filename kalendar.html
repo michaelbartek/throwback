@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKŽE, KEDY A ČO?</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <style>
+        /* Reset a základné nastavenie pre Full HD bez scrollovania */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Zakáže scrollovanie */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #8c82b6; /* Fialové pozadie */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hlavný kontajner vycentrovaný na stred */
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Štýl pre formulár a kalendár */
+        .date-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* Štýl pre vstupné pole (zobrazuje vybraný dátum) */
+        .date-input {
+            font-size: 1.5rem;
+            padding: 12px 25px;
+            border: 2px solid #ffffff;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-family: inherit;
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 280px;
+        }
+
+        .date-input:focus {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* grid/wrapper pre výber zábavy */
+        .activity-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 stĺpce vedľa seba */
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+            margin: 10px 0;
+        }
+
+        /* Skryjeme natívny radio button gombík */
+        .activity-options input[type="radio"] {
+            display: none;
+        }
+
+        /* Vlastný štýl pre klikacie boxy zábavy */
+        .activity-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px solid transparent;
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+        }
+
+        .activity-card:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Stav, keď je karta vybraná - zmení sa na tvoju oranžovú */
+        .activity-options input[type="radio"]:checked + .activity-card {
+            background-color: #f3a657;
+            border-color: #ffffff;
+            box-shadow: 0 6px 15px rgba(243, 166, 87, 0.4);
+            transform: scale(1.03);
+        }
+
+        /* Spoločný štýl pre tlačidlá */
+        .btn {
+            font-size: 1.5rem;
+            padding: 15px 45px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            margin-top: 10px;
+        }
+
+        /* Tlačidlo Odoslať - Oranžovo/žlté */
+        .btn-submit {
+            background-color: #f3a657; 
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background-color: #e29546;
+            transform: scale(1.05);
+        }
+
+        /* Štýl pre malý obrázok nad nadpisom */
+        .top-image {
+            max-width: 150px; 
+            height: auto;
+            margin-bottom: 15px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+        }
+
+        /* FLATPICKR OVERRIDES (Dizajn vyskakujúceho kalendára) */
+        .flatpickr-calendar {
+            background: #5c5383 !important; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4) !important;
+            border: none !important;
+            border-radius: 15px !important;
+            font-family: inherit !important;
+        }
+        .flatpickr-months, .flatpickr-month, .flatpickr-current-month {
+            color: #ffffff !important;
+            fill: #ffffff !important;
+        }
+        span.flatpickr-weekday {
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-weight: bold;
+        }
+        .flatpickr-day {
+            color: #ffffff !important;
+            border-radius: 8px !important;
+        }
+        .flatpickr-day:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-color: transparent !important;
+        }
+        .flatpickr-day.today {
+            border-color: #ffffff !important;
+        }
+        .flatpickr-day.selected, .flatpickr-day.selected:hover {
+            background: #f3a657 !important;
+            border-color: #f3a657 !important;
+            color: white !important;
+        }
+        .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover {
+            color: rgba(255, 255, 255, 0.25) !important;
+        }
+        .flatpickr-prev-month:hover svg, .flatpickr-next-month:hover svg {
+            fill: #f3a657 !important;
+        }
+    </style>
+</head>
+<body>
+
+   <div class="container">
+        <img src="img/obrazok.png" alt="Chill ilustrácia" class="top-image">
+
+        <h1>TAKŽE, KEDY A ČO?</h1>
+        
+          <form action="https://formspree.io/f/mjgzzkzp" method="POST" class="date-form">
+            
+            <input type="text" name="vybrany_datum" class="date-input" placeholder="Klikni a vyber dátum" required id="datePicker">
+            
+            <div class="activity-options">
+                <label>
+                    <input type="radio" name="typ_zabavy" value="Chill doma + hry" required>
+                    <div class="activity-card">Chill doma + hry</div>
+                </label>
+                
+                <label>
+                    <input type="radio" name="typ_zabavy" value="Priroda / Park">
+                    <div class="activity-card">Príroda / Park</div>
+                </label>
+                
+                <label>
+                    <input type="radio" name="typ_zabavy" value="Mesto + Milkshake">
+                    <div class="activity-card">Mesto + Milkshake</div>
+                </label>
+                
+                <label>
+                    <input type="radio" name="typ_zabavy" value="Event / Kino / Party">
+                    <div class="activity-card">Event / Kino / Párty</div>
+                </label>
+            </div>
+            
+            <input type="hidden" name="_next" value="https://throwback.sk/dakujem.html/">
+
+            <button type="submit" class="btn btn-submit">NEXT</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/sk.js"></script>
+
+    <script>
+        // Inicializácia Flatpickru s našimi nastaveniami
+        flatpickr("#datePicker", {
+            locale: "sk",          
+            dateFormat: "d. m. Y", 
+            minDate: "today",      
+            disableMobile: "true"  
+        });
+    </script>
+
+</body>
+</html>
+    

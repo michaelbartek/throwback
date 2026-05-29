@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chceš pochillovať vonku?</title>
+   <style>
+        /* Reset a základné nastavenie pre Full HD bez scrollovania */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Zakáže scrollovanie */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #8c82b6; /* Fialové pozadie z tvojho screenshotu */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hlavný kontajner vycentrovaný na stred */
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Flexbox pre dokonalé vycentrovanie tlačidiel vedľa seba */
+        .buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Medzera medzi tlačidlami */
+            position: relative;
+            width: 100%;
+            height: 80px; /* Fixná výška obalu, aby stránka neskakala */
+        }
+
+        /* Spoločný štýl pre tlačidlá */
+        .btn {
+            font-size: 1.5rem;
+            padding: 15px 45px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+        }
+
+        /* Tlačidlo ÁNO - Oranžovo/žlté z tvojho screenshotu */
+        .btn-yes {
+            background-color: #f3a657; 
+            color: white;
+        }
+
+        .btn-yes:hover {
+            background-color: #e29546;
+            transform: scale(1.05);
+        }
+
+        /* Tlačidlo NIE - Bordovo/červené */
+        .btn-no {
+            background-color: #a63e3e; 
+            color: white;
+            /* Premenné pre hladší JS prechod (voliteľné) */
+            transition: transform 0.2s ease, background-color 0.2s ease, left 0.1s ease, top 0.1s ease;
+        }
+        /* Štýl pre tvoj malý obrázok nad nadpisom */
+        .top-image {
+            max-width: 150px; /* Maximálna šírka obrázka (uprav podľa potreby) */
+            height: auto;
+            margin-bottom: 20px; /* Medzera medzi obrázkom a nadpisom */
+            border-radius: 12px; /* Jemné zaoblenie rohov obrázka */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Jemný tieň */
+        }
+    </style>
+</head>
+<body>
+
+   <div class="container">
+        <img src="img/obrazok.png" alt="Chill ilustrácia" class="top-image">
+
+        <h1>CHCEŠ POCHILLOVAŤ VONKU?</h1>
+        
+        <div class="buttons-wrapper">
+            <a href="ano.html" class="btn btn-yes">ÁNO</a>
+            
+            <button class="btn btn-no" id="noBtn">NIE</button>
+        </div>
+    </div>
+<script>
+        const noBtn = document.getElementById('noBtn');
+
+        // Funkcia, ktorá posunie tlačidlo na náhodnú pozíciu na obrazovke
+        function moveButton() {
+            // Zistíme rozmery okna mínus veľkosť tlačidla, aby neodskočilo mimo obrazovku
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+
+            // Vygenerujeme náhodné súradnice
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            // Zmeníme pozíciu tlačidla na fixnú/absolútnu voči celej stránke
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        // Aktivuje sa hneď, ako myš vstúpi na plochu tlačidla
+        noBtn.addEventListener('mouseenter', moveButton);
+        
+        // Pre istotu aj pre dotykové zariadenia, ak by niekto klikol
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Zabráni predvolenému kliknutiu
+            moveButton();
+        });
+    </script>
+
+</body>
+</html>
